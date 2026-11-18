@@ -32,7 +32,6 @@ class Display:
                     1
                 )
 
-        # Draw nodes
         for node in nodes:
             pygame.draw.circle(
                 self.screen,

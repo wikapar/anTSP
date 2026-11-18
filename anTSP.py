@@ -4,33 +4,31 @@ import argparse
 from graph.graph import Graph
 from display.display import Display
 from graph.node import Node
+from simulation.simulation import Simulation
 from utils.helpers import generate_random_graph
 
 
+DEFAULT_SCREEN_WIDTH = 800
+DEFAULT_SCREEN_HEIGHT = 600
+
+
 def main():
-    width = 800
-    height = 600
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-w', '--width', type=int, help='Select screen the width')
+    parser.add_argument('h', '--height', type=int, help='Select screen the height')
+    parser.parse_args()
+    args = parser.parse_args()
 
-    graph = generate_random_graph(15, width, height)
+    if not (width := args.width):
+        width = DEFAULT_SCREEN_WIDTH
 
-    display = Display(width, height)
+    if not (height := args.height):
+        height = DEFAULT_SCREEN_HEIGHT
 
-    running = True
-    clock = pygame.time.Clock()
+    simulation = Simulation()
+    simulation.simulation_loop(height, width)
 
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-
-        display.clear()
-        display.draw_graph(graph)
-        display.update()
-
-        clock.tick(60)
-
-    display.close()
+    
 
 
 if __name__ == "__main__":
