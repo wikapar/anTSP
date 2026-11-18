@@ -7,6 +7,7 @@ from utils.helpers import euclidean_distance
 
 
 class AntColony:
+    """Class implementing the classic Ant System (AS) algorithm."""
     def __init__(
         self,
         graph: Graph,
@@ -23,6 +24,7 @@ class AntColony:
         self.alpha = alpha
         self.beta = beta #setting it to 0 disables the distance heuristic
         self.evaporation_rate = evaporation_rate
+        self.initialize_pheromones = self.initialize_pheromones
 
         self.ants = []
         self.pheromones = {} #dict where tuples are indexes
@@ -102,7 +104,8 @@ class AntColony:
         for edge in self.pheromones:
             self.pheromones[edge] *= (1 - self.evaporation_rate)
 
-    #TODO: Make more modular - what about versions where ants deposit pheromones every step
+    #TODO: Make more modular - how about a version where ants deposit pheromones every step -> 
+    # that would be closer to real ants
     def deposit_pheromones(self):
         """Ants deposit pheromones after finishing the tour based on the distance of the tour. """
         Q = 1.0
