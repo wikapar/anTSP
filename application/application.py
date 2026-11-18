@@ -17,15 +17,16 @@ class Application:
     def run(self):
         while self._is_running:
             self.handle_events()
-            for _ in range(self.steps_per_frame):
-                self.simulation.step()
 
-            self.display.clear()
-            self.display.draw_graph(self.simulation.graph)
-            self.display.update()
+            for _ in range(self.steps_per_frame):
+                if not self.simulation.algorithm.is_finished():
+                    self.simulation.step()
+
+            self.display.draw(self.simulation)
+
             self.clock.tick(self.fps)
 
-        pygame.quit()
+        self.display.close()
 
 
     def handle_events(self):
