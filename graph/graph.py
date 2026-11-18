@@ -1,5 +1,5 @@
 from typing import List
-from node import Node
+from graph.node import Node
 
 
 class Graph:
