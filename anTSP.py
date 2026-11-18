@@ -12,6 +12,7 @@ DEFAULT_SCREEN_WIDTH = 800
 DEFAULT_SCREEN_HEIGHT = 600
 NODE_NUMBER = 10
 FPS = 30
+STEPS_PER_FRAME = 1
 
 
 def main():
@@ -20,6 +21,7 @@ def main():
     parser.add_argument('-y', '--height', type=int, help='Select the screen height')
     parser.add_argument('-n', '--num-of-nodes', type=int, help='Number of nodes in the graph')
     parser.add_argument('-f', '--fps', type=int, help='FPS of the display')
+    parser.add_argument('-s', '--steps-per-frame', type=int, help='Number of steps per one frame of display')
     parser.parse_args()
     args = parser.parse_args()
 
@@ -35,8 +37,11 @@ def main():
     if not (fps := args.fps):
             fps = FPS
 
+    if not (steps_per_frame := args.steps_per_frame):
+                steps_per_frame = STEPS_PER_FRAME
+
     simulation = Simulation(num_of_nodes, width, height)
-    application = Application(simulation, width, height, fps)
+    application = Application(simulation, width, height, fps, steps_per_frame)
     application.run()
 
 if __name__ == "__main__":
