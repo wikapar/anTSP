@@ -8,14 +8,16 @@ from simulation.simulation import Simulation
 from utils.helpers import generate_random_graph
 
 
-DEFAULT_SCREEN_WIDTH = 800
-DEFAULT_SCREEN_HEIGHT = 600
+DEFAULT_SCREEN_WIDTH = 600
+DEFAULT_SCREEN_HEIGHT = 800
+NODE_NUMBER = 10
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-w', '--width', type=int, help='Select screen the width')
-    parser.add_argument('h', '--height', type=int, help='Select screen the height')
+    parser.add_argument('-x', '--width', type=int, help='Select the screen width')
+    parser.add_argument('-y', '--height', type=int, help='Select the screen height')
+    parser.add_argument('-n', '--num-of-nodes', type=int, help='Number of nodes in the graph')
     parser.parse_args()
     args = parser.parse_args()
 
@@ -25,10 +27,11 @@ def main():
     if not (height := args.height):
         height = DEFAULT_SCREEN_HEIGHT
 
-    simulation = Simulation()
-    simulation.simulation_loop(height, width)
+    if not (num_of_nodes := args.num_of_nodes):
+        num_of_nodes = NODE_NUMBER
 
-    
+    simulation = Simulation(num_of_nodes)
+    simulation.simulation_loop(height, width)
 
 
 if __name__ == "__main__":

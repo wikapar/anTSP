@@ -3,9 +3,11 @@ from display.display import Display
 from utils.helpers import generate_random_graph
 
 class Simulation:
-
-    def simulation_loop(width: int, height: int):
-        graph = generate_random_graph(15, width, height)
+    def __init__(self, num_of_nodes: int):
+        self.num_of_nodes = num_of_nodes
+    
+    def simulation_loop(self, width: int, height: int):
+        graph = generate_random_graph(self.num_of_nodes, width, height)
 
         display = Display(width, height)
 
