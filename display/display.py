@@ -1,5 +1,8 @@
 import pygame
 
+from graph.graph import Graph
+
+
 class Display:
     def __init__(self, width: int, height: int):
         self.width = width
@@ -11,7 +14,7 @@ class Display:
 
         self.font = pygame.font.SysFont(None, 20)
 
-    def draw_graph(self, graph):
+    def draw_graph(self, graph: Graph):
         self.screen.fill((25, 25, 25))
 
         nodes = graph.get_nodes()

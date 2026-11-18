@@ -6,12 +6,12 @@ from display.display import Display
 from graph.node import Node
 
 
-def generate_random_graph(n, width, height):
+def generate_random_graph(n: int, maxWidth: int, maxHeight: int):
     graph = Graph([])
 
     for i in range(n):
-        x = random.randint(30, width - 30)
-        y = random.randint(30, height - 30)
+        x = random.randint(30, maxWidth - 30)
+        y = random.randint(30, maxHeight - 30)
         graph.add_node(Node(i, x, y))
 
     return graph
