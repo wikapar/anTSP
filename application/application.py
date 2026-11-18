@@ -21,6 +21,9 @@ class Application:
             self.display.clear()
             self.display.draw_graph(self.simulation.graph)
             self.display.update()
+            self.clock.tick(self.fps)
+
+        pygame.quit()
 
 
     def handle_events(self):
