@@ -19,7 +19,6 @@ class Display:
 
         nodes = graph.get_nodes()
 
-        # Draw edges
         for i in range(len(nodes)):
             for j in range(i + 1, len(nodes)):
                 a = nodes[i]
@@ -50,6 +49,34 @@ class Display:
             )
 
         pygame.display.flip()
+
+    def clear(self):
+        self.screen.fill((25, 25, 25))
+
+    def draw_path(self, path, color=(0, 255, 0)):
+        for i in range(len(path) - 1):
+            a = path[i]
+            b = path[i + 1]
+
+            pygame.draw.line(
+                self.screen,
+                color,
+                (a.x, a.y),
+                (b.x, b.y),
+                2
+            )
+
+    def draw_ant(self, node, color=(255, 0, 0)):
+        pygame.draw.circle(
+            self.screen,
+            color,
+            (node.x, node.y),
+            9
+        )
+
+    def update(self):
+        pygame.display.flip()
+
 
     def close(self):
         pygame.quit()
