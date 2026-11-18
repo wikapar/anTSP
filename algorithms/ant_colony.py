@@ -87,19 +87,83 @@ class AntColony:
 
 
     def move_ants(self):
-        pass
+        for ant in self.ants:
+            if ant.finished:
+                continue
+
+            next_node = self.choose_next_node(ant)
+
+        if next_node is None:
+            ant.return_to_start()
+        else:
+            ant.move_to(next_node)
 
     def evaporate_pheromones(self):
-        pass
+        for edge in self.pheromones:
+            self.pheromones[edge] *= (1 - self.evaporation_rate)
 
+    #TODO: Make more modular - what about versions where ants deposit pheromones every step
     def deposit_pheromones(self):
-        pass
+        """Ants deposit pheromones after finishing the tour based on the distance of the tour. """
+        Q = 1.0
+        for ant in self.ants:
+            if not ant.finished:
+                continue
+
+            route_distance = self.calculate_route_distance(ant.route)
+
+            if route_distance <= 0:
+                continue
+
+            deposit_amount = Q / route_distance
+
+            for i in range(len(ant.route) - 1):
+                node_a = ant.route[i]
+                node_b = ant.route[i + 1]
+
+                edge = self.get_edge_key(node_a, node_b)
+
+                self.pheromones[edge] += deposit_amount
 
     def update_best_tour(self):
-        pass
+        for ant in self.ants:
+            if not ant.finished:
+                continue
+
+            distance = self.calculate_route_distance(ant.route)
+
+            if distance < self.best_distance:
+                self.best_distance = distance
+                self.best_tour = ant.route.copy()
 
     def step(self):
-        pass
+        """Advances the algorithm by one step. 
+        If all ants finished their tour the next iteration starts - ants are reset but the pheromones are not.
+        Upon new iteration the best found tour is updated.
+        """
+        if self.iteration_complete:
+            self.initialize_ants()
+            self.iteration_complete = False
+
+        self.move_ants()
+
+        if all(ant.finished for ant in self.ants):
+            self.update_best_tour()
+            self.evaporate_pheromones()
+            self.deposit_pheromones()
+
+            self.iteration_complete = True
+
+    def calculate_route_distance(self, route):
+        total_distance = 0
+
+        for i in range(len(route) - 1):
+            total_distance += euclidean_distance(
+                route[i],
+                route[i + 1]
+            )
+
+        return total_distance
 
     def get_edge_key(self, node_a: Node, node_b: Node):
         return tuple(sorted((node_a.id, node_b.id)))
