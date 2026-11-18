@@ -1,13 +1,15 @@
 import random
 
+from algorithms.algorithm import Algorithm
 from algorithms.ant import Ant
 from graph.graph import Graph
 from graph.node import Node
 from utils.helpers import euclidean_distance
 
 
-class AntColony:
-    """Class implementing the classic Ant System (AS) algorithm."""
+class AntColony(Algorithm):
+    """Inherits the abstract Algorithm class.
+    Implements the classic Ant System (AS) algorithm."""
     def __init__(
         self,
         graph: Graph,
@@ -16,6 +18,7 @@ class AntColony:
         beta: float,
         evaporation_rate: float,
         initial_pheromone: float=1.0,
+        max_iterations: int=100,
         start_node: Node=None #if None each ant will have a different starting point
     ):
         self.graph = graph
@@ -24,7 +27,7 @@ class AntColony:
         self.alpha = alpha
         self.beta = beta #setting it to 0 disables the distance heuristic
         self.evaporation_rate = evaporation_rate
-        self.initialize_pheromones = self.initialize_pheromones
+        self.initial_pheromone = initial_pheromone
 
         self.ants = []
         self.pheromones = {} #dict where tuples are indexes
@@ -33,8 +36,12 @@ class AntColony:
         self.best_distance = float("inf")
         self.start_node = start_node
 
+        self.current_iteration = 1
+        self.max_iterations = max_iterations
+
         self.initialize_pheromones()
         self.initialize_ants()
+
 
     def initialize_pheromones(self):
         nodes = self.graph.get_nodes()
@@ -174,3 +181,6 @@ class AntColony:
     def get_pheromone(self, node_a: Node, node_b: Node):
         edge = self.get_edge_key(node_a.id, node_b.id)
         return self.pheromones[edge]
+
+    def is_finished(self):
+        return self.current_iteration >= self.max_iterations
