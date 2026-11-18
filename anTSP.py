@@ -1,20 +1,10 @@
 import pygame
-import random
+import argparse
 
 from graph.graph import Graph
 from display.display import Display
 from graph.node import Node
-
-
-def generate_random_graph(n: int, maxWidth: int, maxHeight: int):
-    graph = Graph([])
-
-    for i in range(n):
-        x = random.randint(30, maxWidth - 30)
-        y = random.randint(30, maxHeight - 30)
-        graph.add_node(Node(i, x, y))
-
-    return graph
+from utils.helpers import generate_random_graph
 
 
 def main():
@@ -33,7 +23,10 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+
+        display.clear()
         display.draw_graph(graph)
+        display.update()
 
         clock.tick(60)
 
