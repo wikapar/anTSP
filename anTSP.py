@@ -1,6 +1,6 @@
-import pygame
 import argparse
 
+from application.application import Application
 from graph.graph import Graph
 from display.display import Display
 from graph.node import Node
@@ -8,9 +8,10 @@ from simulation.simulation import Simulation
 from utils.helpers import generate_random_graph
 
 
-DEFAULT_SCREEN_WIDTH = 600
-DEFAULT_SCREEN_HEIGHT = 800
+DEFAULT_SCREEN_WIDTH = 800
+DEFAULT_SCREEN_HEIGHT = 600
 NODE_NUMBER = 10
+FPS = 30
 
 
 def main():
@@ -18,6 +19,7 @@ def main():
     parser.add_argument('-x', '--width', type=int, help='Select the screen width')
     parser.add_argument('-y', '--height', type=int, help='Select the screen height')
     parser.add_argument('-n', '--num-of-nodes', type=int, help='Number of nodes in the graph')
+    parser.add_argument('-f', '--fps', type=int, help='FPS of the display')
     parser.parse_args()
     args = parser.parse_args()
 
@@ -30,9 +32,12 @@ def main():
     if not (num_of_nodes := args.num_of_nodes):
         num_of_nodes = NODE_NUMBER
 
-    simulation = Simulation(num_of_nodes)
-    simulation.simulation_loop(height, width)
+    if not (fps := args.fps):
+            fps = FPS
 
+    simulation = Simulation(num_of_nodes, width, height)
+    application = Application(simulation, width, height, fps)
+    application.run()
 
 if __name__ == "__main__":
     main()
