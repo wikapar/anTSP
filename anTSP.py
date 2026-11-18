@@ -1,37 +1,43 @@
-import pygame
 import argparse
 
+from application.application import Application
 from graph.graph import Graph
 from display.display import Display
 from graph.node import Node
+from simulation.simulation import Simulation
 from utils.helpers import generate_random_graph
 
 
+DEFAULT_SCREEN_WIDTH = 800
+DEFAULT_SCREEN_HEIGHT = 600
+NODE_NUMBER = 10
+FPS = 30
+
+
 def main():
-    width = 800
-    height = 600
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-x', '--width', type=int, help='Select the screen width')
+    parser.add_argument('-y', '--height', type=int, help='Select the screen height')
+    parser.add_argument('-n', '--num-of-nodes', type=int, help='Number of nodes in the graph')
+    parser.add_argument('-f', '--fps', type=int, help='FPS of the display')
+    parser.parse_args()
+    args = parser.parse_args()
 
-    graph = generate_random_graph(15, width, height)
+    if not (width := args.width):
+        width = DEFAULT_SCREEN_WIDTH
 
-    display = Display(width, height)
+    if not (height := args.height):
+        height = DEFAULT_SCREEN_HEIGHT
 
-    running = True
-    clock = pygame.time.Clock()
+    if not (num_of_nodes := args.num_of_nodes):
+        num_of_nodes = NODE_NUMBER
 
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+    if not (fps := args.fps):
+            fps = FPS
 
-
-        display.clear()
-        display.draw_graph(graph)
-        display.update()
-
-        clock.tick(60)
-
-    display.close()
-
+    simulation = Simulation(num_of_nodes, width, height)
+    application = Application(simulation, width, height, fps)
+    application.run()
 
 if __name__ == "__main__":
     main()
