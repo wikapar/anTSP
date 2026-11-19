@@ -3,3 +3,6 @@ __pycache__/
 # run logs of the visualizer (keep experiment results, they are small and used for the slides)
 results/runs/
 results/experiments/quick*/
+
+# Office lock files
+~$*
