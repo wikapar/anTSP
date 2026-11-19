@@ -1,13 +1,16 @@
 """Creates the pictures and the animation for the presentation into presentation/assets/.
 
-    python presentation/make_assets.py
+    python presentation/make_assets.py              # everything
+    python presentation/make_assets.py emergence    # only one asset (tsp_intro, pruning_tree, ...)
 
 Needs matplotlib and pygame (requirements.txt) and ffmpeg on PATH for the GIF/MP4.
 """
+import csv
 import math
 import os
 import random
 import shutil
+import statistics
 import subprocess
 import sys
 import tempfile
@@ -198,10 +201,98 @@ def simulation_animation(graph_seed=30, algo_seed=4, nodes=10, steps_per_frame=6
     shutil.rmtree(frames_dir)
 
 
+def emergence(n=30, graphs=5, repeats=3, ants=20, iterations=100):
+    """One ant vs. a colony with the same budget of tours (ants * iterations) on the 30-city maps of the
+    full experiment. Three groups, all Ant System with beta = 2, rho = 0.2:
+      * colony: 20 ants that follow the shared pheromone (alpha = 1)
+      * one ant: a single ant with its own trail, 2000 iterations (alpha = 1)
+      * no trails: 20 ants that ignore pheromone (alpha = 0), i.e. 2000 independent tours
+    Writes emergence.png and emergence.csv (gap of the best tour so far after every tour)."""
+    from algorithms.ant_colony import AntColony
+    from experiments.run_experiments import GRAPH_AREA, graph_seed_for
+
+    # best known tour per map (from the full experiment)
+    reference = {}
+    with (ROOT / "results" / "experiments" / "full" / "results.csv").open() as file:
+        for row in csv.DictReader(file):
+            if row["experiment"] == "scaling" and int(row["n"]) == n:
+                reference[int(row["graph_seed"])] = float(row["reference"])
+
+    budget = ants * iterations
+    groups = {"colony": (ants, iterations, 1.0), "one ant": (1, budget, 1.0), "no trails": (ants, iterations, 0.0)}
+    curves = {name: [] for name in groups}
+    mean_tour = {name: [] for name in groups}  # average single ant tour in the first / last iteration
+    for graph_index in range(graphs):
+        graph_seed = graph_seed_for(1, n, graph_index)
+        graph = generate_random_graph(n, *GRAPH_AREA, rng=random.Random(graph_seed))
+        matrix = graph.distance_matrix
+        best_known = reference[graph_seed]
+        for repeat in range(repeats):
+            for name, (m, its, alpha) in groups.items():
+                colony = AntColony(graph, number_of_ants=m, alpha=alpha, beta=2.0, evaporation_rate=0.2,
+                                   max_iterations=its, seed=graph_seed * 10 + repeat)
+                best, curve, means = math.inf, [], []
+                while not colony.is_finished():
+                    if all(ant.finished for ant in colony.ants):
+                        lengths = [tour_length([node.node_id for node in ant.tour], matrix) for ant in colony.ants]
+                        for length in lengths:
+                            best = min(best, length)
+                            curve.append((best - best_known) / best_known * 100)
+                        means.append((statistics.mean(lengths) - best_known) / best_known * 100)
+                    colony.step()
+                curves[name].append(curve)
+                mean_tour[name].append((means[0], means[-1]))
+
+    median = {name: [statistics.median(run[i] for run in runs) for i in range(budget)]
+              for name, runs in curves.items()}
+    with (OUT / "emergence.csv").open("w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["tours"] + [f"{name} (median gap %)" for name in groups])
+        for i in range(budget):
+            writer.writerow([i + 1] + [f"{median[name][i]:.3f}" for name in groups])
+    for name in groups:
+        first = statistics.median(a for a, _ in mean_tour[name])
+        last = statistics.median(b for _, b in mean_tour[name])
+        print(f"emergence {name:10s}: best after {budget} tours {median[name][-1]:5.1f} %, "
+              f"after {ants} tours {median[name][ants - 1]:5.1f} %; "
+              f"average tour first/last iteration {first:5.1f} / {last:5.1f} %")
+
+    fig, ax = plt.subplots(figsize=(9.2, 5.6))
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.grid(axis="y", color="#e4e4e0", linewidth=0.8)
+    ax.set_axisbelow(True)
+    x = range(1, budget + 1)
+    styles = {"no trails": (MUTED, f"{ants} ants that ignore the trails"),
+              "one ant": ("#f0a27f", "1 ant with its own trail"),
+              "colony": (ORANGE, f"colony: {ants} ants sharing trails")}
+    label_y = {"no trails": median["no trails"][-1], "colony": max(median["colony"][-1], 3)}
+    label_y["one ant"] = max(median["one ant"][-1] + 2, label_y["colony"] + 8)  # keep the labels apart
+    for name in ("no trails", "one ant", "colony"):
+        color, label = styles[name]
+        ax.plot(x, median[name], color=color, linewidth=3)
+        gap = median[name][-1]
+        ax.text(budget * 1.02, label_y[name], f"{gap:.0f} %  {label}" if gap >= 1 else f"{gap:.1f} %  {label}",
+                va="center", fontsize=13, color=color, fontweight="bold")
+    ax.annotate("fast at first, then stuck\non its own route", xy=(300, median["one ant"][300]),
+                xytext=(560, 22), fontsize=12, color=MUTED,
+                arrowprops={"arrowstyle": "-", "color": MUTED, "linewidth": 1})
+    ax.spines["left"].set_color("#bdbdb8")
+    ax.spines["bottom"].set_color("#bdbdb8")
+    ax.set_xticks(range(0, budget + 1, budget // 4))
+    ax.set_xlim(0, budget)
+    ax.set_ylim(-1, 92)
+    ax.set_xlabel("tours built (all ants together)", fontsize=13, color=MUTED)
+    ax.set_ylabel("best tour so far: % above best known", fontsize=13, color=MUTED)
+    ax.tick_params(colors=MUTED, labelsize=12)
+    fig.tight_layout()
+    fig.savefig(OUT / "emergence.png", dpi=200, transparent=True, bbox_inches="tight")
+    plt.close(fig)
+
+
 if __name__ == "__main__":
-    tsp_intro()
-    pruning_tree()
-    double_bridge()
-    simulation_animation()
+    assets = {"tsp_intro": tsp_intro, "pruning_tree": pruning_tree, "double_bridge": double_bridge,
+              "emergence": emergence, "simulation": simulation_animation}
+    for name in sys.argv[1:] or assets:
+        assets[name]()
     for path in sorted(OUT.iterdir()):
         print(f"  {path.name}  {path.stat().st_size / 1e6:.1f} MB")

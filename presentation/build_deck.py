@@ -162,7 +162,7 @@ SCRIPT = {}  # filled below, also written to script.md
 
 
 WORDS_PER_MINUTE = 130  # calm presenting pace
-TECH_NOTES = {7: "Tech note (not to be read out): the animation is a GIF and plays in PowerPoint and Google Slides "
+TECH_NOTES = {8: "Tech note (not to be read out): the animation is a GIF and plays in PowerPoint and Google Slides "
                  "in presentation mode. If it does not, insert presentation/assets/simulation.mp4 or run "
                  "'python anTSP.py --seed 30 --algo-seed 4 -s 6' live."}
 
@@ -345,7 +345,31 @@ early. Optionally each ant also untangles crossing roads in its tour, called 2-o
 Important: this is a heuristic, with no guarantee. That's exactly why we compare it with the exact methods.
 """)
 
-# 7 - simulation
+# 7 - emergence: one ant vs. the colony (presentation/make_assets.py emergence)
+s = new_slide()
+header(s, "Emergence", "One ant gets lost. A colony finds the route.", ORANGE)
+picture(s, ASSETS / "emergence.png", 0.45, 1.8, w=8.4, name="One ant vs colony")
+card(s, 9.2, 1.95, 3.6, 1.6)
+text(s, 9.45, 2.1, 3.15, 1.35, [
+    [("Same ants, same rules,", {"bold": True})],
+    [("same 2,000 tours.", {"bold": True})],
+    [("Only difference: do they read the ", {}), ("shared trail", {"bold": True, "color": ORANGE}), ("?", {})],
+], size=15, space_after=2)
+stat(s, 9.2, 3.85, 3.6, "+92 %", "one ant, one tour, no trail (average)", MUTED, number_size=36)
+stat(s, 9.2, 5.35, 3.6, "+0.5 %", "the colony after 2,000 tours", ORANGE, number_size=36)
+caption(s, 0.6, 6.85, 8.4, "Ant System, 30-city maps, median of 5 maps × 3 runs; gap to the best known tour")
+add(7, "Wiktoria", "1:00", """
+Is the colony more than the sum of its ants? We tested that on 30-city maps. Every group builds 2000 tours
+with the same rules; the only difference is the shared trail.
+One ant alone draws a tour about 90 percent too long.
+Gray: 20 ants that ignore the pheromone, so 2000 independent tries. The best is still 35 percent too long.
+More ants alone don't help.
+Light orange: one ant following its own trail. It learns fast, then gets stuck on its own route: 6 percent.
+Dark orange, the colony: 20 ants sharing one trail. Half a percent.
+No ant knows the good route. It lives in the trail they build together. That is emergence.
+""")
+
+# 8 - simulation
 s = new_slide()
 header(s, "Our tool", "Same map, two strategies, live", ORANGE)
 picture(s, ASSETS / "simulation.gif", 0.6, 1.85, h=5.15, name="Simulation animation (GIF)")
@@ -359,7 +383,7 @@ text(s, 8.65, 1.95, 4.1, 5.0, [
      (" and proves it at step 1704.", {})],
 ], size=16, space_after=8)
 caption(s, 8.65, 6.65, 4.1, "python anTSP.py --seed 30 --algo-seed 4")
-add(7, "Wiktoria", "1:15", """
+add(8, "Wiktoria", "1:15", """
 This is our simulator. Both algorithms run on the same 10-city map, one step each at a time.
 On the left, the ants. The orange lines are the pheromone trails, and you can see them concentrating. The green
 line is the best tour so far. On the right, backtracking with the MST bound; the dashed blue line is the path it
@@ -369,7 +393,7 @@ the same tour at step 1660, and finishes at step 1704. Only at that moment do we
 That difference, finding versus proving, is the main theme of our results.
 """)
 
-# 8 - method
+# 9 - method
 s = new_slide()
 header(s, "Method", "How we compared them fairly", GREEN)
 cells = [
@@ -387,7 +411,7 @@ for i, (title, body) in enumerate(cells):
     dot(s, x + 0.3, y + 0.3, 0.22, GREEN)
     text(s, x + 0.3, y + 0.7, 3.25, 0.5, title, size=19, bold=True, font=HEAD)
     text(s, x + 0.3, y + 1.2, 3.25, 0.9, body, size=14)
-add(8, "Rita", "1:00", """
+add(9, "Rita", "1:00", """
 One animation proves nothing, so we ran a real experiment: 90 random maps from 5 to 50 cities, and every ACO
 variant 3 times per map with different seeds. 1380 runs in total.
 How do you compare a step of an ant with a step of backtracking? You don't. We count edge evaluations, how often
@@ -397,7 +421,7 @@ they always agreed with each other, a nice correctness check. Above that we comp
 found. Exact algorithms were stopped after 30 seconds, and everything is seeded, so anyone can rerun it.
 """)
 
-# 9 - runtime
+# 10 - runtime
 s = new_slide()
 header(s, "Result 1", "Exact methods hit a wall, ACO keeps going", GREEN)
 picture(s, PLOTS / "01_runtime_vs_n.png", 0.45, 1.75, w=9.0, name="Runtime vs n")
@@ -405,7 +429,7 @@ for i, (number, label, color) in enumerate((("> 30 s", "no pruning at 11 cities 
                                             ("7 s", "Held–Karp at 20 cities", INK),
                                             ("0.8 s", "Ant System at 50 cities", ORANGE))):
     stat(s, 9.75, 1.95 + i * 1.65, 3.1, number, label, color, number_size=36)
-add(9, "Rita", "1:00", """
+add(10, "Rita", "1:00", """
 First result: runtime, on a log scale, so every grid line means ten times more.
 The red line is backtracking without pruning: 3 seconds at 10 cities, and at 11 cities none of the five maps
 finished within 30 seconds. That's the factorial explosion, live.
@@ -415,7 +439,7 @@ The ant algorithms, orange and green, grow slowly: under 2 seconds even at 50 ci
 Fair to say: for small maps the exact methods are actually faster. If you have 10 cities, just solve it exactly.
 """)
 
-# 10 - pruning
+# 11 - pruning
 s = new_slide()
 header(s, "Result 2", "Better bounds move the wall, but don't remove it", BLUE)
 picture(s, PLOTS / "03_exact_algorithms.png", 0.45, 1.75, w=9.0, name="Exact algorithms")
@@ -423,7 +447,7 @@ for i, (number, label, color) in enumerate((("11 s", "simple bound, 12 cities", 
                                             ("0.14 s", "MST bound, 12 cities (80× faster)", BLUE),
                                             ("3 of 5", "maps solved at 25 cities within 30 s", INK))):
     stat(s, 9.75, 1.95 + i * 1.65, 3.1, number, label, color, number_size=36)
-add(10, "Rita", "0:45", """
+add(11, "Rita", "0:45", """
 This zooms in on the exact methods, because the improvements were dramatic.
 With a simple bound, cutting when the path is already too long, we reach 12 cities in 11 seconds. With the
 MST lower bound the same 12 cities take 0.14 seconds, about 80 times faster, and we get to 20 cities in under
@@ -433,7 +457,7 @@ remove it.
 Jordy will now show what the ants do in the meantime.
 """)
 
-# 11 - convergence
+# 12 - convergence
 s = new_slide()
 header(s, "Result 3", "Finding is cheap, proving is expensive", GREEN)
 picture(s, PLOTS / "06_convergence_n12.png", 0.45, 1.75, w=9.0, name="Convergence n=12")
@@ -442,7 +466,7 @@ for i, (number, label, color) in enumerate((("11k", "evaluations: Ant System rea
                                             ("4.8M", "same proof with the simple bound", RED))):
     stat(s, 9.75, 1.95 + i * 1.65, 3.1, number, label, color, number_size=36)
 caption(s, 9.75, 6.8, 3.1, "medians over 5 maps with 12 cities")
-add(11, "Jordy", "1:15", """
+add(12, "Jordy", "1:15", """
 This is our favourite plot. All maps with 12 cities. The x-axis is work, edge evaluations on a log scale, and
 the y-axis is how far the best tour found so far is from the optimum. Solid lines are ACO, dashed lines are
 exact algorithms, and a square means that algorithm finished and proved optimality.
@@ -453,7 +477,7 @@ So the ants are fast at finding a very good tour. What they can never do is tell
 exact methods spend most of their effort on that proof.
 """)
 
-# 12 - quality
+# 13 - quality
 s = new_slide()
 header(s, "Result 4", "How good are the ants?", ORANGE)
 picture(s, PLOTS / "04_aco_gap_vs_n.png", 0.45, 1.75, w=9.0, name="ACO gap vs n")
@@ -462,7 +486,7 @@ for i, (number, label, color) in enumerate((("95 %", "Ant System runs that found
                                             ("+5.1 %", "Ant System at 50 cities (+0.05 % with MAX-MIN + 2-opt)",
                                              INK))):
     stat(s, 9.75, 1.95 + i * 1.65, 3.1, number, label, color, number_size=36)
-add(12, "Jordy", "1:00", """
+add(13, "Jordy", "1:00", """
 So how good are the ants? Up to 25 cities, where we know the optimum, plain Ant System found the optimal tour in
 209 of 219 runs, about 95 percent, and when it missed, it was less than one percent too long. MAX-MIN with 2-opt
 found the optimum in every single run.
@@ -472,7 +496,7 @@ One surprise: the Elitist variant was not better than plain Ant System on our ma
 best tour so much extra weight makes the colony settle too early, but we did not test that further.
 """)
 
-# 13 - parameters
+# 14 - parameters
 s = new_slide()
 header(s, "Result 5", "Parameters matter: distance information is essential", ORANGE)
 picture(s, PLOTS / "08_sensitivity_alpha_beta.png", 0.45, 1.8, w=6.4, name="Alpha beta heatmap")
@@ -484,7 +508,7 @@ text(s, 0.6, 5.35, 12.1, 1.4, [
      ("Ants: ", {"bold": True}), ("1 ant 13 %, 40 ants 1.1 %.", {})],
 ], size=16, space_after=6)
 caption(s, 0.6, 6.75, 12, "Ant System on 40-city maps, 3 maps × 3 runs per setting; gap to the best known tour")
-add(13, "Wiktoria", "1:00", """
+add(14, "Wiktoria", "1:00", """
 ACO has knobs, so we tested them on 40-city maps, 3 maps times 3 runs for each setting.
 The heatmap shows alpha, the weight of the pheromone, against beta, the weight of the distance. The left column
 is beta equal to zero: ants that only follow pheromone and ignore distance. They are more than 200 percent worse.
@@ -495,7 +519,7 @@ Around 0.2 to 0.6 is the sweet spot.
 And more ants help: 1 ant gives 13 percent, 40 ants about 1 percent, but every ant also costs time.
 """)
 
-# 14 - conclusions
+# 15 - conclusions
 s = new_slide()
 header(s, "Conclusions", "What we learned", GREEN)
 columns = [
@@ -522,7 +546,7 @@ text(s, 0.6, 5.5, 12.1, 1.3, [
     "instances with tens of thousands of cities exactly).",
     "For n ≥ 25 the reference is the best known tour, not a proven optimum.",
 ], size=14, space_after=3)
-add(14, "Rita", "1:15", """
+add(15, "Rita", "1:15", """
 To sum up. Exact algorithms give a guarantee, and with good pruning they're fast for small problems: up to
 about 20 to 25 cities in our Python code. After that the cost explodes, no matter how clever the bound.
 Ant colony optimization gives no guarantee, but it found the optimum in about 95 percent of the small cases,
@@ -534,7 +558,7 @@ the trends, not the absolute times. Professional solvers like Concorde solve ten
 exactly. And above 25 cities our reference is the best known tour, not a proven optimum.
 """)
 
-# 15 - thanks
+# 16 - thanks
 s = new_slide(dark=True)
 dot(s, 0.6, 1.62, 0.16, ORANGE)
 dot(s, 0.85, 1.62, 0.16, BLUE)
@@ -548,7 +572,7 @@ text(s, 0.6, 4.3, 6.4, 1.6, [
 ], size=16, space_after=6)
 text(s, 0.6, 6.3, 7, 0.4, "Wiktoria PARZYCH  ·  Jordy GODJO  ·  Rita GAYITMAZOVA", size=14, color=DARK_TEXT)
 picture(s, ASSETS / "simulation_frame.png", 7.15, 1.4, w=5.6, name="Simulator screenshot")
-add(15, "All", "0:20", """
+add(16, "All", "0:20", """
 Thank you! The code is on GitHub. You can run python anTSP.py and watch the ants yourself, or rerun all our
 experiments with one command. We're happy to take your questions.
 """)
@@ -563,12 +587,13 @@ print("saved", OUT)
 
 titles = {1: "Title", 2: "One salesman, n cities, one question", 3: "Why not just try every tour?",
           4: "Exact algorithms: smarter, but still exponential", 5: "What ants know about shortest paths",
-          6: "Ant Colony Optimization in four steps", 7: "Same map, two strategies, live (animation)",
-          8: "How we compared them fairly", 9: "Result 1: Exact methods hit a wall, ACO keeps going",
-          10: "Result 2: Better bounds move the wall, but don't remove it",
-          11: "Result 3: Finding is cheap, proving is expensive",
-          12: "Result 4: How good are the ants?", 13: "Result 5: Parameters matter",
-          14: "Conclusions: What we learned", 15: "Thank you / Questions"}
+          6: "Ant Colony Optimization in four steps", 7: "Emergence: one ant vs. a colony",
+          8: "Same map, two strategies, live (animation)",
+          9: "How we compared them fairly", 10: "Result 1: Exact methods hit a wall, ACO keeps going",
+          11: "Result 2: Better bounds move the wall, but don't remove it",
+          12: "Result 3: Finding is cheap, proving is expensive",
+          13: "Result 4: How good are the ants?", 14: "Result 5: Parameters matter",
+          15: "Conclusions: What we learned", 16: "Thank you / Questions"}
 lines = ["# anTSP presentation: speaker script", "",
          "Audience: other students. Allowed length: 10 to 15 minutes.",
          "Speaker split (change freely): Jordy = intro + results 3-4, Wiktoria = ants + demo + parameters, "
@@ -579,10 +604,10 @@ for index in sorted(SCRIPT):
     speaker, minutes, script = SCRIPT[index]
     m, sec = minutes.split(":")
     total += int(m) * 60 + int(sec)
-    lines += [f"## Slide {index}: {titles[index]}", f"**{speaker}**, about {minutes} min", "",
+    lines += [f"## Slide {index}: {titles[index]}", f"about {minutes} min", "",
               " ".join(script.split("\n")).replace("  ", " "), ""]
 lines.insert(3, f"Timings assume a calm {WORDS_PER_MINUTE} words per minute: {total // 60}:{total % 60:02d} min in total. "
                 "At a normal pace (about 145 words per minute) it is about 12.5 min, which leaves room for speaker changes. "
-                "If you run long, shorten slide 10 or 13.")
+                "If you run long, shorten slide 11 or 14.")
 (HERE / "script.md").write_text("\n".join(lines), encoding="utf-8")
 print("saved", HERE / "script.md", f"({total // 60}:{total % 60:02d} min)")
