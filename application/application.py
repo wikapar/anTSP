@@ -1,13 +1,12 @@
 import pygame
 
-from display import display
+from algorithms.algorithm import Algorithm
 from display.display import Display
-from simulation.simulation import Simulation
 
 
 class Application:
-    def __init__(self, simulation: Simulation, display: Display, fps: int, steps_per_frame: int):
-        self.simulation = simulation
+    def __init__(self, algorithm: Algorithm, display: Display, fps: int, steps_per_frame: int):
+        self.algorithm = algorithm
         self.display = display
         self.clock = pygame.time.Clock()
         self.fps = fps
@@ -19,10 +18,10 @@ class Application:
             self.handle_events()
 
             for _ in range(self.steps_per_frame):
-                if not self.simulation.algorithm.is_finished():
-                    self.simulation.step()
+                if not self.algorithm.is_finished():
+                    self.algorithm.step()
 
-            self.display.draw(self.simulation)
+            self.display.draw(self.algorithm)
 
             self.clock.tick(self.fps)
 

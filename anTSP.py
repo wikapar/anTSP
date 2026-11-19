@@ -2,7 +2,6 @@ import argparse
 
 from algorithms.algorithm_factory import create_algorithm_components
 from application.application import Application
-from simulation.simulation import Simulation
 from algorithms.ant_colony import AntColony
 from utils.helpers import generate_random_graph
 from display.display import Display
@@ -70,9 +69,8 @@ def main():
         algorithm_config
     )
 
-    simulation = Simulation(graph, algorithm)
     display = Display(width, height, renderer)
-    application = Application(simulation, display, fps, steps_per_frame)
+    application = Application(algorithm, display, fps, steps_per_frame)
     application.run()
 
 if __name__ == "__main__":

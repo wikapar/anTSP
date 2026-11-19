@@ -1,5 +1,6 @@
 import pygame
 
+from algorithms.algorithm import Algorithm
 from display.algorithm_renderer import AlgorithmRenderer
 from display.graph_renderer import GraphRenderer
 
@@ -18,17 +19,17 @@ class Display:
         self.graph_renderer = GraphRenderer()
         self.algorithm_renderer = algorithm_renderer
 
-    def draw(self, simulation):
+    def draw(self, algorithm: Algorithm):
         self.screen.fill((25, 25, 25))
 
         self.graph_renderer.draw(
             self.screen,
-            simulation.graph
+            algorithm.graph
         )
 
         self.algorithm_renderer.draw(
             self.screen,
-            simulation.algorithm
+            algorithm
         )
         pygame.display.flip()
 
