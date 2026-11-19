@@ -19,7 +19,7 @@ class AntColony(Algorithm):
         evaporation_rate: float,
         initial_pheromone: float=1.0,
         max_iterations: int=100,
-        start_node: Node=None #if None each ant will have a different starting point
+        start_node: Node | None=None #if None each ant will have a different starting point
     ):
         self.graph = graph
         self.number_of_ants = number_of_ants
@@ -36,7 +36,7 @@ class AntColony(Algorithm):
         self.best_distance = float("inf")
         self.start_node = start_node
 
-        self.current_iteration = 1
+        self.current_iteration = 0
         self.max_iterations = max_iterations
 
         self.initialize_pheromones()
@@ -102,10 +102,10 @@ class AntColony(Algorithm):
 
             next_node = self.choose_next_node(ant)
 
-        if next_node is None:
-            ant.return_to_start()
-        else:
-            ant.move_to(next_node)
+            if next_node is None:
+                ant.return_to_start()
+            else:
+                ant.move_to(next_node)
 
     def evaporate_pheromones(self):
         for edge in self.pheromones:
@@ -120,16 +120,16 @@ class AntColony(Algorithm):
             if not ant.finished:
                 continue
 
-            route_distance = self.calculate_route_distance(ant.route)
+            route_distance = self.calculate_route_distance(ant.tour)
 
             if route_distance <= 0:
                 continue
 
             deposit_amount = Q / route_distance
 
-            for i in range(len(ant.route) - 1):
-                node_a = ant.route[i]
-                node_b = ant.route[i + 1]
+            for i in range(len(ant.tour) - 1):
+                node_a = ant.tour[i]
+                node_b = ant.tour[i + 1]
 
                 edge = self.get_edge_key(node_a, node_b)
 
@@ -140,11 +140,11 @@ class AntColony(Algorithm):
             if not ant.finished:
                 continue
 
-            distance = self.calculate_route_distance(ant.route)
+            distance = self.calculate_route_distance(ant.tour)
 
             if distance < self.best_distance:
                 self.best_distance = distance
-                self.best_tour = ant.route.copy()
+                self.best_tour = ant.tour.copy()
 
     def step(self):
         """Advances the algorithm by one step. 
