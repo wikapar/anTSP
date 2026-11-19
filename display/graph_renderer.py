@@ -10,19 +10,6 @@ class GraphRenderer:
     def draw(self, screen: pygame.Surface, graph: Graph):
         nodes = graph.get_nodes()
 
-        for i in range(len(nodes)):
-            for j in range(i + 1, len(nodes)):
-                a = nodes[i]
-                b = nodes[j]
-
-                pygame.draw.line(
-                    screen,
-                    (70, 70, 70),
-                    (a.x, a.y),
-                    (b.x, b.y),
-                    1
-                )
-
         for node in nodes:
             pygame.draw.circle(
                 screen,
