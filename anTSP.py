@@ -1,5 +1,6 @@
 import argparse
 
+from algorithms.algorithm_factory import create_algorithm_components
 from application.application import Application
 from simulation.simulation import Simulation
 from algorithms.ant_colony import AntColony
@@ -40,10 +41,27 @@ def main():
     if not (steps_per_frame := args.steps_per_frame):
                 steps_per_frame = STEPS_PER_FRAME
 
+
     graph = generate_random_graph(num_of_nodes, width, height) #TODO generating should take in a seed so we can objectively compare runs
-    algorithm = AntColony(graph, number_of_ants=5, alpha=0.2, beta=0.2, evaporation_rate=0.5)
+
+    algorithm_type = "ant_colony"
+
+    algorithm_config = {
+        "number_of_ants": 5,
+        "alpha": 0.2,
+        "beta": 0.2,
+        "evaporation_rate": 0.5,
+        "max_iterations": 100
+    }
+
+    algorithm, renderer = create_algorithm_components(
+        algorithm_type,
+        graph,
+        algorithm_config
+    )
+
     simulation = Simulation(graph, algorithm)
-    display = Display(width, height, AntColonyRenderer())
+    display = Display(width, height, renderer)
     application = Application(simulation, display, fps, steps_per_frame)
     application.run()
 
