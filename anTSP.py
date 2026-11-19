@@ -16,6 +16,16 @@ FPS = 30
 STEPS_PER_FRAME = 1
 
 
+#TODO delete Simulatin class - its useless now and algorithm class can be used instead
+#TODO add color dscriptons for ant renderer
+#TODO the factory should probably take in an enum instead of a string
+#TODO rn simulation steps per frame is int, but maybe we should be able to set that there is 0.5 frame per second
+#TODO maybe add option to step through the simulation step by step?
+#TODO maybe display the iteration on screen somewhere?
+#TODO implement backtracking
+#TODO run experiments with different seeds, different parameters, take avergaes, std etc, -> make pretty plots
+#TODO update readmes
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-x', '--width', type=int, help='Select the screen width')
