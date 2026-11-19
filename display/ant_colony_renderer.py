@@ -5,11 +5,18 @@ import pygame
 from algorithms.ant_colony import AntColony
 from display.algorithm_renderer import AlgorithmRenderer
 
+ANT_COLOR = (220, 30, 30)
+PHEROMONE_COLOR = (255, 150, 0)
+ANT_RADIUS = 5
+PHEROMONE_SCALE = 3000
+BEST_TOUR_COLOR = (30, 200, 30)
+WHITE = (255, 255, 255)
+LEGEND_BACKGROUND = (30, 30, 30, 200)
 
 class AntColonyRenderer(AlgorithmRenderer):
     def __init__(self):
-        self.pheromone_scale = 3000
-        self.ant_radius = 5
+        self.pheromone_scale = PHEROMONE_SCALE
+        self.ant_radius = ANT_RADIUS
         self.show_legend = True
 
     def draw(self, screen: pygame.Surface, algorithm: AntColony):
@@ -34,7 +41,7 @@ class AntColonyRenderer(AlgorithmRenderer):
 
             pygame.draw.line(
                 screen,
-                (255, 150, 0),
+                PHEROMONE_COLOR,
                 (node_a.x, node_a.y),
                 (node_b.x, node_b.y),
                 width
@@ -44,7 +51,7 @@ class AntColonyRenderer(AlgorithmRenderer):
         for ant in ant_colony.ants:
             pygame.draw.circle(
                 screen,
-                (220, 30, 30),
+                ANT_COLOR,
                 (ant.current_node.x, ant.current_node.y),
                 self.ant_radius
             )
@@ -60,7 +67,7 @@ class AntColonyRenderer(AlgorithmRenderer):
 
         pygame.draw.lines(
             screen,
-            (30, 200, 30),
+            BEST_TOUR_COLOR,
             False,
             points,
             3
@@ -70,9 +77,9 @@ class AntColonyRenderer(AlgorithmRenderer):
         font = pygame.font.Font(None, 24)
 
         legend_items = [
-            ((255, 150, 0), "Pheromone trails"),
-            ((30, 200, 30), "Best tour"),
-            ((220, 30, 30), "Ants"),
+            (PHEROMONE_COLOR, "Pheromone trails"),
+            (BEST_TOUR_COLOR, "Best tour"),
+            (ANT_COLOR, "Ants"),
         ]
 
         padding = 10
@@ -85,7 +92,7 @@ class AntColonyRenderer(AlgorithmRenderer):
             (box_width, box_height),
             pygame.SRCALPHA
         )
-        legend_surface.fill((30, 30, 30, 200))
+        legend_surface.fill(LEGEND_BACKGROUND)
 
         for i, (color, label) in enumerate(legend_items):
             y = padding + i * line_height
@@ -97,7 +104,7 @@ class AntColonyRenderer(AlgorithmRenderer):
                 5
             )
 
-            text = font.render(label, True, (255, 255, 255))
+            text = font.render(label, True, WHITE)
             legend_surface.blit(text, (padding + 20, y))
 
         screen.blit(legend_surface, (10, 10))
