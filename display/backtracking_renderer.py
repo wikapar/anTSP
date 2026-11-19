@@ -34,8 +34,9 @@ class BacktrackingRenderer(AlgorithmRenderer):
     def info_lines(self, algorithm: Backtracking) -> list[str]:
         return [
             f"Depth: {len(algorithm.path)}/{algorithm.graph.get_size()}",
-            f"Current path: {algorithm.current_distance:.1f}",
-            f"Pruning: {'on' if algorithm.use_pruning else 'off'}",
+            f"Path: {algorithm.current_distance:.0f}",
+            f"Bound: {algorithm.bound.value}",
+            f"Pruned: {algorithm.pruned}",
         ]
 
     def legend_items(self):

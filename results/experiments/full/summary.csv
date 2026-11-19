@@ -1,0 +1,133 @@
+algorithm,n,runs,finished,mean_gap_percent,std_gap_percent,optimal_rate,median_cpu_seconds,median_edge_evaluations,reference_is_optimal
+Backtracking (no pruning),5,5,5,0.0,0.0,1.0,0.0003,152,True
+Backtracking (no pruning),6,5,5,0.0,0.0,1.0,0.0008,770,True
+Backtracking (no pruning),7,5,5,0.0,0.0,1.0,0.0063,4632,True
+Backtracking (no pruning),8,5,5,0.0,0.0,1.0,0.0918,32438,True
+Backtracking (no pruning),9,5,5,0.0,0.0,1.0,0.8233,259520,True
+Backtracking (no pruning),10,5,5,0.0,0.0,1.0,3.0637,2335698,True
+Backtracking (no pruning),11,5,0,,,0.0,,,True
+Backtracking (simple bound),5,5,5,0.0,0.0,1.0,0.0001,87,True
+Backtracking (simple bound),6,5,5,0.0,0.0,1.0,0.0004,389,True
+Backtracking (simple bound),7,5,5,0.0,0.0,1.0,0.002,1816,True
+Backtracking (simple bound),8,5,5,0.0,0.0,1.0,0.0216,8927,True
+Backtracking (simple bound),9,5,5,0.0,0.0,1.0,0.0911,36741,True
+Backtracking (simple bound),10,5,5,0.0,0.0,1.0,0.2639,230065,True
+Backtracking (simple bound),11,5,5,0.0,0.0,1.0,3.4648,1452308,True
+Backtracking (simple bound),12,5,5,0.0,0.0,1.0,11.2066,4769985,True
+Backtracking (simple bound),13,5,2,0.0,0.0,0.4,19.3041,14876877.5,True
+Backtracking (MST bound),5,5,5,0.0,0.0,1.0,0.0001,119,True
+Backtracking (MST bound),6,5,5,0.0,0.0,1.0,0.0002,397,True
+Backtracking (MST bound),7,5,5,0.0,0.0,1.0,0.0008,908,True
+Backtracking (MST bound),8,5,5,0.0,0.0,1.0,0.0016,3083,True
+Backtracking (MST bound),9,5,5,0.0,0.0,1.0,0.0095,9833,True
+Backtracking (MST bound),10,5,5,0.0,0.0,1.0,0.0173,55962,True
+Backtracking (MST bound),11,5,5,0.0,0.0,1.0,0.0319,45395,True
+Backtracking (MST bound),12,5,5,0.0,0.0,1.0,0.1395,154533,True
+Backtracking (MST bound),13,5,5,0.0,0.0,1.0,0.0472,163506,True
+Backtracking (MST bound),14,5,5,0.0,0.0,1.0,0.324,1373029,True
+Backtracking (MST bound),15,5,5,0.0,0.0,1.0,0.1486,583859,True
+Backtracking (MST bound),16,5,5,0.0,0.0,1.0,0.4701,1946702,True
+Backtracking (MST bound),18,5,5,0.0,0.0,1.0,1.4828,6056393,True
+Backtracking (MST bound),20,5,5,0.0,0.0,1.0,1.4046,4024016,True
+Backtracking (MST bound),25,5,3,0.0,0.0,0.6,14.8756,73412556,True
+Backtracking (MST + NN start),5,5,5,0.0,0.0,1.0,0.0001,119,True
+Backtracking (MST + NN start),6,5,5,0.0,0.0,1.0,0.0002,409,True
+Backtracking (MST + NN start),7,5,5,0.0,0.0,1.0,0.0004,929,True
+Backtracking (MST + NN start),8,5,5,0.0,0.0,1.0,0.0017,3053,True
+Backtracking (MST + NN start),9,5,5,0.0,0.0,1.0,0.0075,9501,True
+Backtracking (MST + NN start),10,5,5,0.0,0.0,1.0,0.0208,55954,True
+Backtracking (MST + NN start),11,5,5,0.0,0.0,1.0,0.0314,45437,True
+Backtracking (MST + NN start),12,5,5,0.0,0.0,1.0,0.0172,50988,True
+Backtracking (MST + NN start),13,5,5,0.0,0.0,1.0,0.0438,163584,True
+Backtracking (MST + NN start),14,5,5,0.0,0.0,1.0,0.3403,1373117,True
+Backtracking (MST + NN start),15,5,5,0.0,0.0,1.0,0.1498,583961,True
+Backtracking (MST + NN start),16,5,5,0.0,0.0,1.0,0.414,1946822,True
+Backtracking (MST + NN start),18,5,5,0.0,0.0,1.0,1.3529,6056543,True
+Backtracking (MST + NN start),20,5,5,0.0,0.0,1.0,1.6362,4015512,True
+Backtracking (MST + NN start),25,5,3,0.0,0.0,0.6,15.271,73011287,True
+Held-Karp (DP),5,5,5,0.0,0.0,1.0,0.0001,56,True
+Held-Karp (DP),6,5,5,0.0,0.0,1.0,0.0001,170,True
+Held-Karp (DP),7,5,5,0.0,0.0,1.0,0.0002,492,True
+Held-Karp (DP),8,5,5,0.0,0.0,1.0,0.0011,1358,True
+Held-Karp (DP),9,5,5,0.0,0.0,1.0,0.0022,3600,True
+Held-Karp (DP),10,5,5,0.0,0.0,1.0,0.0025,9234,True
+Held-Karp (DP),11,5,5,0.0,0.0,1.0,0.0125,23060,True
+Held-Karp (DP),12,5,5,0.0,0.0,1.0,0.0298,56342,True
+Held-Karp (DP),13,5,5,0.0,0.0,1.0,0.0319,135192,True
+Held-Karp (DP),14,5,5,0.0,0.0,1.0,0.0518,319514,True
+Held-Karp (DP),15,5,5,0.0,0.0,1.0,0.1404,745500,True
+Held-Karp (DP),16,5,5,0.0,0.0,1.0,0.2999,1720350,True
+Held-Karp (DP),18,5,5,0.0,0.0,1.0,1.523,8912930,True
+Held-Karp (DP),20,5,5,0.0,0.0,1.0,6.9581,44826662,True
+Ant System,5,15,15,0.0,0.0,1.0,0.009,7510,True
+Ant System,6,15,15,0.0,0.0,1.0,0.0112,12615,True
+Ant System,7,15,15,0.0,0.0,1.0,0.0164,19621,True
+Ant System,8,15,15,0.0,0.0,1.0,0.0498,28828,True
+Ant System,9,15,15,0.0,0.0,1.0,0.0688,40536,True
+Ant System,10,15,15,0.0,0.0,1.0,0.0331,55045,True
+Ant System,11,15,15,0.0,0.0,1.0,0.107,72655,True
+Ant System,12,15,15,0.07,0.178,0.867,0.1251,93666,True
+Ant System,13,15,15,0.0,0.0,1.0,0.0798,118378,True
+Ant System,14,15,15,0.082,0.21,0.867,0.0759,147091,True
+Ant System,15,15,15,0.03,0.089,0.867,0.0968,180105,True
+Ant System,16,15,15,0.0,0.0,1.0,0.1086,217720,True
+Ant System,18,15,15,0.0,0.0,1.0,0.1784,307953,True
+Ant System,20,15,15,0.051,0.101,0.8,0.1947,420190,True
+Ant System,25,15,15,0.832,1.257,0.533,0.2523,650300,True
+Ant System,30,15,15,1.127,1.469,,0.861,930435,False
+Ant System,40,15,15,2.963,1.795,,0.5252,1640780,False
+Ant System,50,15,15,5.07,3.444,,0.8408,2551225,False
+Elitist Ant System,5,15,15,0.0,0.0,1.0,0.0085,7510,True
+Elitist Ant System,6,15,15,0.0,0.0,1.0,0.0109,12615,True
+Elitist Ant System,7,15,15,0.0,0.0,1.0,0.0151,19621,True
+Elitist Ant System,8,15,15,0.044,0.163,0.933,0.0512,28828,True
+Elitist Ant System,9,15,15,0.0,0.0,1.0,0.0707,40536,True
+Elitist Ant System,10,15,15,0.199,0.746,0.933,0.032,55045,True
+Elitist Ant System,11,15,15,0.0,0.0,1.0,0.1094,72655,True
+Elitist Ant System,12,15,15,0.07,0.178,0.867,0.1263,93666,True
+Elitist Ant System,13,15,15,0.129,0.365,0.8,0.0722,118378,True
+Elitist Ant System,14,15,15,0.195,0.277,0.667,0.0657,147091,True
+Elitist Ant System,15,15,15,0.324,1.211,0.933,0.1013,180105,True
+Elitist Ant System,16,15,15,0.208,0.777,0.933,0.1201,217720,True
+Elitist Ant System,18,15,15,0.024,0.09,0.933,0.1404,307953,True
+Elitist Ant System,20,15,15,0.216,0.534,0.667,0.1885,420190,True
+Elitist Ant System,25,15,15,0.942,0.955,0.267,0.2489,650300,True
+Elitist Ant System,30,15,15,1.433,1.693,,0.8545,930435,False
+Elitist Ant System,40,15,15,3.041,1.684,,0.5238,1640780,False
+Elitist Ant System,50,15,15,3.591,2.152,,0.8071,2551225,False
+MAX-MIN Ant System,5,15,15,0.0,0.0,1.0,0.008,7510,True
+MAX-MIN Ant System,6,15,15,0.0,0.0,1.0,0.0107,12615,True
+MAX-MIN Ant System,7,15,15,0.0,0.0,1.0,0.0151,19621,True
+MAX-MIN Ant System,8,15,15,0.0,0.0,1.0,0.0522,28828,True
+MAX-MIN Ant System,9,15,15,0.0,0.0,1.0,0.0698,40536,True
+MAX-MIN Ant System,10,15,15,0.0,0.0,1.0,0.0336,55045,True
+MAX-MIN Ant System,11,15,15,0.0,0.0,1.0,0.1048,72655,True
+MAX-MIN Ant System,12,15,15,0.098,0.198,0.8,0.1278,93666,True
+MAX-MIN Ant System,13,15,15,0.0,0.0,1.0,0.0666,118378,True
+MAX-MIN Ant System,14,15,15,0.195,0.277,0.667,0.0649,147091,True
+MAX-MIN Ant System,15,15,15,0.134,0.5,0.933,0.0925,180105,True
+MAX-MIN Ant System,16,15,15,0.029,0.108,0.933,0.1158,217720,True
+MAX-MIN Ant System,18,15,15,0.024,0.09,0.933,0.1396,307953,True
+MAX-MIN Ant System,20,15,15,0.108,0.208,0.733,0.1896,420190,True
+MAX-MIN Ant System,25,15,15,0.489,0.59,0.4,0.2556,650300,True
+MAX-MIN Ant System,30,15,15,0.366,0.681,,0.8284,930435,False
+MAX-MIN Ant System,40,15,15,1.485,1.394,,0.5367,1640780,False
+MAX-MIN Ant System,50,15,15,2.902,2.302,,0.8342,2551225,False
+MAX-MIN AS + 2-opt,5,15,15,0.0,0.0,1.0,0.0111,25150,True
+MAX-MIN AS + 2-opt,6,15,15,0.0,0.0,1.0,0.0145,51099,True
+MAX-MIN AS + 2-opt,7,15,15,0.0,0.0,1.0,0.0212,92645,True
+MAX-MIN AS + 2-opt,8,15,15,0.0,0.0,1.0,0.072,147548,True
+MAX-MIN AS + 2-opt,9,15,15,0.0,0.0,1.0,0.0944,219276,True
+MAX-MIN AS + 2-opt,10,15,15,0.0,0.0,1.0,0.0497,332245,True
+MAX-MIN AS + 2-opt,11,15,15,0.0,0.0,1.0,0.1534,470767,True
+MAX-MIN AS + 2-opt,12,15,15,0.0,0.0,1.0,0.1853,604938,True
+MAX-MIN AS + 2-opt,13,15,15,0.0,0.0,1.0,0.1004,816738,True
+MAX-MIN AS + 2-opt,14,15,15,0.0,0.0,1.0,0.1013,1097271,True
+MAX-MIN AS + 2-opt,15,15,15,0.0,0.0,1.0,0.1473,1332465,True
+MAX-MIN AS + 2-opt,16,15,15,0.0,0.0,1.0,0.1724,1666648,True
+MAX-MIN AS + 2-opt,18,15,15,0.0,0.0,1.0,0.2487,2324853,True
+MAX-MIN AS + 2-opt,20,15,15,0.0,0.0,1.0,0.3124,3319710,True
+MAX-MIN AS + 2-opt,25,15,15,0.013,0.048,0.6,0.4293,5406700,True
+MAX-MIN AS + 2-opt,30,15,15,0.0,0.0,,1.4892,8053575,False
+MAX-MIN AS + 2-opt,40,15,15,0.0,0.0,,0.9817,14871980,False
+MAX-MIN AS + 2-opt,50,15,15,0.054,0.203,,1.6702,24086625,False

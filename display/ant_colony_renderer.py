@@ -32,12 +32,13 @@ class AntColonyRenderer(AlgorithmRenderer):
         self._trail_surface.fill((0, 0, 0, 0))
 
         nodes = {node.node_id: node for node in ant_colony.graph.get_nodes()}
-        values = ant_colony.pheromones.values()
+        edges = list(ant_colony.pheromone_edges())
+        values = [value for _, value in edges]
         low, high = min(values), max(values)
         span = high - low
 
         # weak trails first so strong ones are on top
-        for (node_a_id, node_b_id), pheromone in sorted(ant_colony.pheromones.items(), key=lambda item: item[1]):
+        for (node_a_id, node_b_id), pheromone in sorted(edges, key=lambda item: item[1]):
             ratio = (pheromone - low) / span if span > 0 else 0
             alpha = int(MIN_TRAIL_ALPHA + (MAX_TRAIL_ALPHA - MIN_TRAIL_ALPHA) * ratio)
             width = 1 + round((MAX_TRAIL_WIDTH - 1) * ratio)
@@ -57,7 +58,7 @@ class AntColonyRenderer(AlgorithmRenderer):
         return [
             f"Iteration: {iteration}/{algorithm.max_iterations}",
             f"Ants: {algorithm.number_of_ants}",
-            f"alpha={algorithm.alpha:g}  beta={algorithm.beta:g}  rho={algorithm.evaporation_rate:g}",
+            f"a={algorithm.alpha:g} b={algorithm.beta:g} rho={algorithm.evaporation_rate:g}",
         ]
 
     def legend_items(self):

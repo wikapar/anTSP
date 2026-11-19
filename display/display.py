@@ -1,14 +1,15 @@
 import pygame
 
 from application.algorithm_run import AlgorithmRun
+from application.session import Session, ViewState
 from display import theme
 from display.chart_renderer import ChartRenderer
 from display.graph_renderer import GraphRenderer
 
 MARGIN = 12
 GAP = 12
-HEADER_HEIGHT = 104
-CHART_HEIGHT = 230
+HEADER_HEIGHT = 124
+CHART_HEIGHT = 260
 
 
 class Layout:
@@ -40,8 +41,9 @@ class Layout:
             self.graph_areas.append(pygame.Rect(panel.left, panel.top + HEADER_HEIGHT,
                                                 panel.width, panel.height - HEADER_HEIGHT))
 
-        if panel_width < 200 or self.graph_areas[0].height < 150:
-            raise ValueError(f"Window {width}x{height} is too small for {num_panels} panel(s).")
+        if panel_width < 300 or self.graph_areas[0].height < 150:
+            raise ValueError(f"Window {width}x{height} is too small for {num_panels} panel(s). "
+                             f"Use a bigger -x / -y.")
 
     @property
     def graph_size(self) -> tuple[int, int]:
@@ -55,7 +57,7 @@ class Display:
 
         pygame.init()
         self.screen = pygame.display.set_mode((layout.width, layout.height))
-        pygame.display.set_caption("TSP Visualizer")
+        pygame.display.set_caption("anTSP - TSP Visualizer")
 
         # subsurfaces share pixels with the screen, so renderers can use graph coordinates directly
         self.graph_surfaces = [self.screen.subsurface(rect) for rect in layout.graph_areas]
@@ -65,13 +67,13 @@ class Display:
         self.graph_renderer = GraphRenderer()
         self.chart_renderer = ChartRenderer()
 
-    def draw(self, runs: list[AlgorithmRun], paused: bool = False):
+    def draw(self, session: Session, view: ViewState):
         self.screen.fill(theme.BACKGROUND)
 
-        for run, header, graph_surface, panel in zip(runs, self.header_surfaces,
+        for run, header, graph_surface, panel in zip(session.runs, self.header_surfaces,
                                                      self.graph_surfaces, self.layout.panels):
             pygame.draw.rect(self.screen, theme.PANEL_BACKGROUND, panel)
-            self.draw_header(header, run)
+            self.draw_header(header, run, session.optimum)
 
             run.renderer.draw(graph_surface, run.algorithm)
             self.graph_renderer.draw(graph_surface, run.algorithm.graph)
@@ -82,11 +84,11 @@ class Display:
         if self.chart_surface is not None:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             local_mouse = (mouse_x - self.layout.chart.left, mouse_y - self.layout.chart.top)
-            self.chart_renderer.draw(self.chart_surface, runs, local_mouse, paused)
+            self.chart_renderer.draw(self.chart_surface, session, view, local_mouse)
 
         pygame.display.flip()
 
-    def draw_header(self, surface: pygame.Surface, run: AlgorithmRun):
+    def draw_header(self, surface: pygame.Surface, run: AlgorithmRun, optimum: float | None):
         """Same header for every algorithm: title + status, shared stats, own stats, legend."""
         width = surface.get_width()
         accent = run.renderer.accent
@@ -94,20 +96,28 @@ class Display:
         pygame.draw.rect(surface, accent, (14, 14, 4, 18))
         theme.draw_text(surface, run.name, (26, 14), theme.TEXT_PRIMARY, theme.FONT_TITLE)
 
-        status = "finished" if run.algorithm.is_finished() else "running"
-        status_color = theme.BEST_TOUR_COLOR if run.algorithm.is_finished() else theme.TEXT_SECONDARY
+        status = "finished" if run.is_finished() else "running"
+        status_color = theme.BEST_TOUR_COLOR if run.is_finished() else theme.TEXT_SECONDARY
         theme.draw_text(surface, status, (width - 14, 16), status_color, theme.FONT_TEXT, anchor="topright")
 
         if run.history:
-            best = f"{run.best_distance:.1f} (at step {run.best_found_at_step})"
+            best = f"Best tour: {run.best_distance:.1f}"
+            if optimum:
+                gap = theme.format_gap(run.best_distance, optimum)
+                best += f"  ({gap})"
+            best += f"   found at step {run.best_found_at_step}"
         else:
-            best = "-"
-        theme.draw_text(surface, f"Steps: {run.steps}     Best tour: {best}", (14, 40), theme.TEXT_PRIMARY)
-        theme.draw_text(surface, "     ".join(run.renderer.info_lines(run.algorithm)), (14, 60),
+            best = "Best tour: -"
+        theme.draw_text(surface, best, (14, 42), theme.TEXT_PRIMARY)
+
+        stats = (f"Steps: {run.steps}     Edge evaluations: {theme.format_count(run.evaluations)}"
+                 f"     CPU: {run.elapsed:.2f} s")
+        theme.draw_text(surface, stats, (14, 62), theme.TEXT_SECONDARY)
+        theme.draw_text(surface, "     ".join(run.renderer.info_lines(run.algorithm)), (14, 82),
                         theme.TEXT_SECONDARY)
 
         x = 14
-        legend_y = 88
+        legend_y = 109
         for kind, color, label in run.renderer.legend_items():
             x = theme.draw_legend_symbol(surface, kind, color, x, legend_y)
             rect = theme.draw_text(surface, label, (x + 6, legend_y), theme.TEXT_SECONDARY,

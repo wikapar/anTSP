@@ -1,0 +1,91 @@
+{
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    18,
+    20,
+    25,
+    30,
+    40,
+    50
+  ],
+  "graphs_per_size": 5,
+  "aco_repeats": 3,
+  "time_limit": 30,
+  "max_n": {
+    "Backtracking (no pruning)": 11,
+    "Held-Karp (DP)": 20
+  },
+  "convergence_n": 12,
+  "sensitivity": {
+    "n": 40,
+    "graphs": 3,
+    "repeats": 3,
+    "iterations": 100,
+    "alpha": [
+      0.5,
+      1,
+      2,
+      3
+    ],
+    "beta": [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
+    "rho": [
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      0.6,
+      0.9
+    ],
+    "ants": [
+      1,
+      2,
+      5,
+      10,
+      15,
+      20,
+      40
+    ]
+  },
+  "preset": "full",
+  "experiment": "all",
+  "seed": 1,
+  "aco": {
+    "ants": null,
+    "alpha": 1.0,
+    "beta": 2.0,
+    "rho": 0.2,
+    "iterations": 100
+  },
+  "graph_area": [
+    622,
+    440
+  ],
+  "started": "2026-11-19T19:21:28",
+  "git_commit": "fbd799af17275ee76b288369a07963be0d38a78b",
+  "python": "3.14.10",
+  "updates": [
+    {
+      "experiment": "sensitivity",
+      "git_commit": "fbd799af17275ee76b288369a07963be0d38a78b",
+      "date": "2026-11-19T19:42:28"
+    }
+  ]
+}
