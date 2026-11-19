@@ -71,6 +71,7 @@ def main():
     display = Display(width, height, renderer)
     application = Application(algorithm, display, fps, steps_per_frame)
     application.run()
+    print(f"Meilleure distance trouvée : {algorithm.best_distance:.2f}")
 
 if __name__ == "__main__":
     main()

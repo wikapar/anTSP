@@ -9,12 +9,13 @@ def euclidean_distance(a: Node, b: Node):
     dy = a.y - b.y
     return math.sqrt(dx**2 + dy**2)
 
-def generate_random_graph(n: int, max_x: int, max_y: int):
+def generate_random_graph(n: int, max_x: int, max_y: int, seed: int | None = None):
+    rng = random.Random(seed)
     graph = Graph([])
 
     for i in range(n):
-        x = random.randint(30, max_x - 30)
-        y = random.randint(30, max_y - 30)
+        x = rng.randint(30, max_x - 30)
+        y = rng.randint(30, max_y - 30)
         graph.add_node(Node(i, x, y))
 
     return graph

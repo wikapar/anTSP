@@ -18,8 +18,10 @@ class AntColony(Algorithm):
         beta: float,
         evaporation_rate: float,
         initial_pheromone: float=1.0,
-        max_iterations: int=100,
-        start_node: Node | None=None #if None each ant will have a different starting point
+      
+        max_iterations: int = 100,
+        start_node: Node | None = None,
+        seed: int | None = None,
     ):
         self.graph = graph
         self.number_of_ants = number_of_ants
@@ -39,8 +41,10 @@ class AntColony(Algorithm):
         self.current_iteration = 0
         self.max_iterations = max_iterations
 
+        self.rng = random.Random(seed)
         self.initialize_pheromones()
         self.initialize_ants()
+     
 
 
     def initialize_pheromones(self):
@@ -54,7 +58,7 @@ class AntColony(Algorithm):
     def initialize_ants(self):
         nodes = self.graph.get_nodes()
         if self.start_node is None:
-            starting_nodes = random.sample(nodes, self.number_of_ants)
+            starting_nodes = self.rng.sample(nodes, self.number_of_ants)
         else:
             if self.start_node not in nodes:
                 raise ValueError("Starting node is not in the graph.")
@@ -81,7 +85,7 @@ class AntColony(Algorithm):
         for node in unvisited_nodes
         ]
 
-        return random.choices(
+        return self.rng.choices(
             unvisited_nodes,
             weights=weights,
             k=1
