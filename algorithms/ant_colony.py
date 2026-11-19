@@ -17,7 +17,7 @@ class AntColony(Algorithm):
         alpha: float,
         beta: float,
         evaporation_rate: float,
-        initial_pheromone: float=1.0,
+        initial_pheromone: float=0.01,
         max_iterations: int=100,
         start_node: Node | None=None #if None each ant will have a different starting point
     ):

@@ -1,3 +1,5 @@
+import math
+
 import pygame
 
 from algorithms.ant_colony import AntColony
@@ -6,8 +8,9 @@ from display.algorithm_renderer import AlgorithmRenderer
 
 class AntColonyRenderer(AlgorithmRenderer):
     def __init__(self):
+        self.max_pheromone_width = 8
+        self.pheromone_scale = 300
         self.ant_radius = 5
-        self.max_pheromone_width = 6
 
     def draw(self, screen: pygame.Surface, algorithm: AntColony):
         self.draw_pheromones(screen, algorithm)
@@ -20,17 +23,12 @@ class AntColonyRenderer(AlgorithmRenderer):
             for node in ant_colony.graph.get_nodes()
         }
 
-        max_pheromone = max(
-            ant_colony.pheromones.values(),
-            default=1
-        )
 
         for (node_a_id, node_b_id), pheromone in ant_colony.pheromones.items():
             node_a = nodes[node_a_id]
             node_b = nodes[node_b_id]
 
-            intensity = pheromone / max_pheromone
-            width = max(1, int(intensity * self.max_pheromone_width))
+            width = max(1, round(pheromone * self.pheromone_scale))
 
             pygame.draw.line(
                 screen,
