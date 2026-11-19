@@ -55,7 +55,7 @@ def main():
     algorithm_type = AgorithmType.ANT_COLONY
 
     algorithm_config = {
-        "number_of_ants": 1,
+        "number_of_ants": 5,
         "alpha": 1.0,
         "beta": 2.0,
         "evaporation_rate": 0.2,

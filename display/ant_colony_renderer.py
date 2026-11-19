@@ -8,8 +8,7 @@ from display.algorithm_renderer import AlgorithmRenderer
 
 class AntColonyRenderer(AlgorithmRenderer):
     def __init__(self):
-        self.max_pheromone_width = 8
-        self.pheromone_scale = 300
+        self.pheromone_scale = 3000
         self.ant_radius = 5
 
     def draw(self, screen: pygame.Surface, algorithm: AntColony):
