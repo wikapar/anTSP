@@ -7,5 +7,5 @@ from algorithms.algorithm import Algorithm
 class AlgorithmRenderer(ABC):
 
     @abstractmethod
-    def draw(self, screen: pygame.Surface, algorithm: Algorithm) -> None:
+    def draw(self, screen: pygame.Surface, algorithm: Algorithm):
         pass

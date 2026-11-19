@@ -1,11 +1,11 @@
 from algorithms.algorithm import Algorithm
-from utils.helpers import generate_random_graph
+from graph.graph import Graph
 
 class Simulation:
-    def __init__(self, num_of_nodes: int, max_x: int, max_y: int, algorithm: Algorithm):
-        self.num_of_nodes = num_of_nodes
-        self.graph = generate_random_graph(self.num_of_nodes, max_x, max_y)
+    def __init__(self, graph: Graph, algorithm: Algorithm):
         self.algorithm = algorithm
+        self.graph = graph
+        
 
     def step(self):
         self.algorithm.step()

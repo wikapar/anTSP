@@ -9,14 +9,14 @@ class AntColonyRenderer(AlgorithmRenderer):
         self.ant_radius = 5
         self.max_pheromone_width = 6
 
-    def draw(self, screen: pygame.Surface, ant_colony: AntColony):
-        self.draw_pheromones(screen, ant_colony)
-        self.draw_best_tour(screen, ant_colony)
-        self.draw_ants(screen, ant_colony)
+    def draw(self, screen: pygame.Surface, algorithm: AntColony):
+        self.draw_pheromones(screen, algorithm)
+        self.draw_best_tour(screen, algorithm)
+        self.draw_ants(screen, algorithm)
 
     def draw_pheromones(self, screen: pygame.Surface, ant_colony: AntColony):
         nodes = {
-            node.id: node
+            node.node_id: node
             for node in ant_colony.graph.get_nodes()
         }
 

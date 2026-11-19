@@ -32,7 +32,7 @@ class GraphRenderer:
             )
 
             label = self.font.render(
-                str(node.id),
+                str(node.node_id),
                 True,
                 (255, 255, 255)
             )

@@ -6,9 +6,9 @@ from simulation.simulation import Simulation
 
 
 class Application:
-    def __init__(self, simulation: Simulation, width: int, height: int, fps: int, steps_per_frame: int):
+    def __init__(self, simulation: Simulation, display: Display, fps: int, steps_per_frame: int):
         self.simulation = simulation
-        self.display = Display(width, height)
+        self.display = display
         self.clock = pygame.time.Clock()
         self.fps = fps
         self._is_running = True

@@ -48,7 +48,7 @@ class AntColony(Algorithm):
 
         for i in range(len(nodes)):
             for j in range(i + 1, len(nodes)):
-                edge = tuple(sorted((nodes[i].id, nodes[j].id)))
+                edge = tuple(sorted((nodes[i].node_id, nodes[j].node_id)))
                 self.pheromones[edge] = self.initial_pheromone
 
     def initialize_ants(self):
@@ -68,7 +68,7 @@ class AntColony(Algorithm):
 
         unvisited_nodes = [
             node for node in nodes
-            if node not in ant.visited_nodes
+            if node.node_id not in ant.visited_nodes
         ]
 
         if not unvisited_nodes:
@@ -151,18 +151,18 @@ class AntColony(Algorithm):
         If all ants finished their tour the next iteration starts - ants are reset but the pheromones are not.
         Upon new iteration the best found tour is updated.
         """
-        if self.iteration_complete:
-            self.initialize_ants()
-            self.iteration_complete = False
-
-        self.move_ants()
-
         if all(ant.finished for ant in self.ants):
             self.update_best_tour()
             self.evaporate_pheromones()
             self.deposit_pheromones()
+            self.current_iteration += 1
 
-            self.iteration_complete = True
+            if not self.is_finished():
+                self.initialize_ants()
+
+            return
+
+        self.move_ants()
 
     def calculate_route_distance(self, route):
         total_distance = 0
@@ -176,10 +176,10 @@ class AntColony(Algorithm):
         return total_distance
 
     def get_edge_key(self, node_a: Node, node_b: Node):
-        return tuple(sorted((node_a.id, node_b.id)))
+        return tuple(sorted((node_a.node_id, node_b.node_id)))
 
     def get_pheromone(self, node_a: Node, node_b: Node):
-        edge = self.get_edge_key(node_a.id, node_b.id)
+        edge = self.get_edge_key(node_a, node_b)
         return self.pheromones[edge]
 
     def is_finished(self):

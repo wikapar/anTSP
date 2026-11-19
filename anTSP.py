@@ -1,11 +1,11 @@
 import argparse
 
 from application.application import Application
-from graph.graph import Graph
-from display.display import Display
-from graph.node import Node
 from simulation.simulation import Simulation
+from algorithms.ant_colony import AntColony
 from utils.helpers import generate_random_graph
+from display.display import Display
+from display.ant_colony_renderer import AntColonyRenderer
 
 
 DEFAULT_SCREEN_WIDTH = 800
@@ -40,8 +40,11 @@ def main():
     if not (steps_per_frame := args.steps_per_frame):
                 steps_per_frame = STEPS_PER_FRAME
 
-    simulation = Simulation(num_of_nodes, width, height)
-    application = Application(simulation, width, height, fps, steps_per_frame)
+    graph = generate_random_graph(num_of_nodes, width, height) #TODO generating should take in a seed so we can objectively compare runs
+    algorithm = AntColony(graph, number_of_ants=5, alpha=0.2, beta=0.2, evaporation_rate=0.5)
+    simulation = Simulation(graph, algorithm)
+    display = Display(width, height, AntColonyRenderer())
+    application = Application(simulation, display, fps, steps_per_frame)
     application.run()
 
 if __name__ == "__main__":
