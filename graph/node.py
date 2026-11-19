@@ -2,6 +2,6 @@ from dataclasses import dataclass
 
 @dataclass
 class Node:
-    id: int
+    node_id: int
     x: int
     y: int
