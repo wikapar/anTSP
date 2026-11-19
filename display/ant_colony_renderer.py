@@ -1,18 +1,30 @@
+import math
+
 import pygame
 
 from algorithms.ant_colony import AntColony
 from display.algorithm_renderer import AlgorithmRenderer
 
+ANT_COLOR = (220, 30, 30)
+PHEROMONE_COLOR = (255, 150, 0)
+ANT_RADIUS = 5
+PHEROMONE_SCALE = 3000
+BEST_TOUR_COLOR = (30, 200, 30)
+WHITE = (255, 255, 255)
+LEGEND_BACKGROUND = (30, 30, 30, 200)
 
 class AntColonyRenderer(AlgorithmRenderer):
     def __init__(self):
-        self.ant_radius = 5
-        self.max_pheromone_width = 6
+        self.pheromone_scale = PHEROMONE_SCALE
+        self.ant_radius = ANT_RADIUS
+        self.show_legend = True
 
     def draw(self, screen: pygame.Surface, algorithm: AntColony):
         self.draw_pheromones(screen, algorithm)
         self.draw_best_tour(screen, algorithm)
         self.draw_ants(screen, algorithm)
+        if self.show_legend:
+            self.draw_legend(screen)
 
     def draw_pheromones(self, screen: pygame.Surface, ant_colony: AntColony):
         nodes = {
@@ -20,21 +32,16 @@ class AntColonyRenderer(AlgorithmRenderer):
             for node in ant_colony.graph.get_nodes()
         }
 
-        max_pheromone = max(
-            ant_colony.pheromones.values(),
-            default=1
-        )
 
         for (node_a_id, node_b_id), pheromone in ant_colony.pheromones.items():
             node_a = nodes[node_a_id]
             node_b = nodes[node_b_id]
 
-            intensity = pheromone / max_pheromone
-            width = max(1, int(intensity * self.max_pheromone_width))
+            width = max(1, round(pheromone * self.pheromone_scale))
 
             pygame.draw.line(
                 screen,
-                (255, 150, 0),
+                PHEROMONE_COLOR,
                 (node_a.x, node_a.y),
                 (node_b.x, node_b.y),
                 width
@@ -44,7 +51,7 @@ class AntColonyRenderer(AlgorithmRenderer):
         for ant in ant_colony.ants:
             pygame.draw.circle(
                 screen,
-                (220, 30, 30),
+                ANT_COLOR,
                 (ant.current_node.x, ant.current_node.y),
                 self.ant_radius
             )
@@ -60,8 +67,44 @@ class AntColonyRenderer(AlgorithmRenderer):
 
         pygame.draw.lines(
             screen,
-            (30, 200, 30),
+            BEST_TOUR_COLOR,
             False,
             points,
             3
         )
+
+    def draw_legend(self, screen: pygame.Surface):
+        font = pygame.font.Font(None, 24)
+
+        legend_items = [
+            (PHEROMONE_COLOR, "Pheromone trails"),
+            (BEST_TOUR_COLOR, "Best tour"),
+            (ANT_COLOR, "Ants"),
+        ]
+
+        padding = 10
+        line_height = 25
+        box_width = 180
+        box_height = padding * 2 + len(legend_items) * line_height
+
+        # Semi-transparent background
+        legend_surface = pygame.Surface(
+            (box_width, box_height),
+            pygame.SRCALPHA
+        )
+        legend_surface.fill(LEGEND_BACKGROUND)
+
+        for i, (color, label) in enumerate(legend_items):
+            y = padding + i * line_height
+
+            pygame.draw.circle(
+                legend_surface,
+                color,
+                (padding + 6, y + 7),
+                5
+            )
+
+            text = font.render(label, True, WHITE)
+            legend_surface.blit(text, (padding + 20, y))
+
+        screen.blit(legend_surface, (10, 10))

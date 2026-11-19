@@ -83,12 +83,12 @@ def main():
 
     if algorithm_type == AgorithmType.ANT_COLONY:
         algorithm_config = {
-            "number_of_ants": 5,
-            "alpha": 0.2,
-            "beta": 0.2,
-            "evaporation_rate": 0.5,
-            "max_iterations": 100
-        }
+        "number_of_ants": 5,
+        "alpha": 1.0,
+        "beta": 2.0,
+        "evaporation_rate": 0.2,
+        "max_iterations": 100
+    }
     else:
         algorithm_config = {
             "use_pruning": not args.no_pruning
