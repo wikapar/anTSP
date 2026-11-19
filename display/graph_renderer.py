@@ -1,27 +1,18 @@
 import pygame
 
 from graph.graph import Graph
+from display import theme
 
 
 class GraphRenderer:
-    def __init__(self):
-        self.font = pygame.font.SysFont(None, 20)
-
     def draw(self, screen: pygame.Surface, graph: Graph):
-        nodes = graph.get_nodes()
-
-        for node in nodes:
-            pygame.draw.circle(
+        for node in graph.get_nodes():
+            pygame.draw.circle(screen, theme.NODE_COLOR, (node.x, node.y), theme.NODE_RADIUS)
+            theme.draw_text(
                 screen,
-                (240, 240, 240),
-                (node.x, node.y),
-                6
-            )
-
-            label = self.font.render(
                 str(node.node_id),
-                True,
-                (255, 255, 255)
+                (node.x + 9, node.y - 9),
+                theme.TEXT_MUTED,
+                theme.FONT_SMALL,
+                anchor="bottomleft"
             )
-
-            screen.blit(label, (node.x + 10, node.y - 10))
