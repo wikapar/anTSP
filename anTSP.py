@@ -1,11 +1,10 @@
 import argparse
 
-from algorithms.algorithm_factory import create_algorithm_components
+from algorithms.algorithm_factory import create_algorithm_components, AgorithmType
 from application.application import Application
-from algorithms.ant_colony import AntColony
 from utils.helpers import generate_random_graph
 from display.display import Display
-from display.ant_colony_renderer import AntColonyRenderer
+
 
 
 DEFAULT_SCREEN_WIDTH = 800
@@ -15,15 +14,15 @@ FPS = 30
 STEPS_PER_FRAME = 1
 
 
-#TODO delete Simulatin class - its useless now and algorithm class can be used instead
 #TODO add color dscriptons for ant renderer
-#TODO the factory should probably take in an enum instead of a string
+#TODO Parameter for seed for graph and for ants!!!!
 #TODO rn simulation steps per frame is int, but maybe we should be able to set that there is 0.5 frame per second
 #TODO maybe add option to step through the simulation step by step?
 #TODO maybe display the iteration on screen somewhere?
 #TODO implement backtracking
 #TODO run experiments with different seeds, different parameters, take avergaes, std etc, -> make pretty plots
 #TODO update readmes
+#TODO We're not validating parameters anywhere (eg is alpha, beta in a good range, is framerate not negative etc.)
 
 def main():
     parser = argparse.ArgumentParser()
@@ -53,7 +52,7 @@ def main():
 
     graph = generate_random_graph(num_of_nodes, width, height) #TODO generating should take in a seed so we can objectively compare runs
 
-    algorithm_type = "ant_colony"
+    algorithm_type = AgorithmType.ANT_COLONY
 
     algorithm_config = {
         "number_of_ants": 5,
