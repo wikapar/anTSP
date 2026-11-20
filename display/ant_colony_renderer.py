@@ -1,110 +1,69 @@
-import math
-
 import pygame
 
 from algorithms.ant_colony import AntColony
 from display.algorithm_renderer import AlgorithmRenderer
+from display import theme
 
-ANT_COLOR = (220, 30, 30)
-PHEROMONE_COLOR = (255, 150, 0)
-ANT_RADIUS = 5
-PHEROMONE_SCALE = 3000
-BEST_TOUR_COLOR = (30, 200, 30)
-WHITE = (255, 255, 255)
-LEGEND_BACKGROUND = (30, 30, 30, 200)
+MIN_TRAIL_ALPHA = 18
+MAX_TRAIL_ALPHA = 220
+MAX_TRAIL_WIDTH = 5
+
 
 class AntColonyRenderer(AlgorithmRenderer):
+    name = "Ant Colony Optimization"
+    accent = theme.ACO_ACCENT
+
     def __init__(self):
-        self.pheromone_scale = PHEROMONE_SCALE
-        self.ant_radius = ANT_RADIUS
-        self.show_legend = True
+        self._trail_surface = None
 
     def draw(self, screen: pygame.Surface, algorithm: AntColony):
         self.draw_pheromones(screen, algorithm)
-        self.draw_best_tour(screen, algorithm)
-        self.draw_ants(screen, algorithm)
-        if self.show_legend:
-            self.draw_legend(screen)
+        theme.draw_tour(screen, algorithm.best_tour)
+
+    def draw_agents(self, screen: pygame.Surface, algorithm: AntColony):
+        for ant in algorithm.ants:
+            theme.draw_agent(screen, self.accent, (ant.current_node.x, ant.current_node.y))
 
     def draw_pheromones(self, screen: pygame.Surface, ant_colony: AntColony):
-        nodes = {
-            node.node_id: node
-            for node in ant_colony.graph.get_nodes()
-        }
+        """Trail strength is shown relative to the weakest/strongest trail, so it stays
+        readable for any number of ants or evaporation rate."""
+        if self._trail_surface is None or self._trail_surface.get_size() != screen.get_size():
+            self._trail_surface = pygame.Surface(screen.get_size(), pygame.SRCALPHA)
+        self._trail_surface.fill((0, 0, 0, 0))
 
+        nodes = {node.node_id: node for node in ant_colony.graph.get_nodes()}
+        edges = list(ant_colony.pheromone_edges())
+        values = [value for _, value in edges]
+        low, high = min(values), max(values)
+        span = high - low
 
-        for (node_a_id, node_b_id), pheromone in ant_colony.pheromones.items():
-            node_a = nodes[node_a_id]
-            node_b = nodes[node_b_id]
-
-            width = max(1, round(pheromone * self.pheromone_scale))
-
+        # weak trails first so strong ones are on top
+        for (node_a_id, node_b_id), pheromone in sorted(edges, key=lambda item: item[1]):
+            ratio = (pheromone - low) / span if span > 0 else 0
+            alpha = int(MIN_TRAIL_ALPHA + (MAX_TRAIL_ALPHA - MIN_TRAIL_ALPHA) * ratio)
+            width = 1 + round((MAX_TRAIL_WIDTH - 1) * ratio)
+            node_a, node_b = nodes[node_a_id], nodes[node_b_id]
             pygame.draw.line(
-                screen,
-                PHEROMONE_COLOR,
+                self._trail_surface,
+                (*self.accent, alpha),
                 (node_a.x, node_a.y),
                 (node_b.x, node_b.y),
                 width
             )
 
-    def draw_ants(self, screen: pygame.Surface, ant_colony: AntColony):
-        for ant in ant_colony.ants:
-            pygame.draw.circle(
-                screen,
-                ANT_COLOR,
-                (ant.current_node.x, ant.current_node.y),
-                self.ant_radius
-            )
+        screen.blit(self._trail_surface, (0, 0))
 
-    def draw_best_tour(self, screen: pygame.Surface, ant_colony: AntColony):
-        if ant_colony.best_tour is None:
-            return
-
-        points = [
-            (node.x, node.y)
-            for node in ant_colony.best_tour
+    def info_lines(self, algorithm: AntColony) -> list[str]:
+        iteration = min(algorithm.current_iteration + 1, algorithm.max_iterations)
+        return [
+            f"Iteration: {iteration}/{algorithm.max_iterations}",
+            f"Ants: {algorithm.number_of_ants}",
+            f"a={algorithm.alpha:g} b={algorithm.beta:g} rho={algorithm.evaporation_rate:g}",
         ]
 
-        pygame.draw.lines(
-            screen,
-            BEST_TOUR_COLOR,
-            False,
-            points,
-            3
-        )
-
-    def draw_legend(self, screen: pygame.Surface):
-        font = pygame.font.Font(None, 24)
-
-        legend_items = [
-            (PHEROMONE_COLOR, "Pheromone trails"),
-            (BEST_TOUR_COLOR, "Best tour"),
-            (ANT_COLOR, "Ants"),
+    def legend_items(self):
+        return [
+            ("fade", self.accent, "Pheromone trails"),
+            ("line", theme.BEST_TOUR_COLOR, "Best tour"),
+            ("dot", self.accent, "Ants"),
         ]
-
-        padding = 10
-        line_height = 25
-        box_width = 180
-        box_height = padding * 2 + len(legend_items) * line_height
-
-        # Semi-transparent background
-        legend_surface = pygame.Surface(
-            (box_width, box_height),
-            pygame.SRCALPHA
-        )
-        legend_surface.fill(LEGEND_BACKGROUND)
-
-        for i, (color, label) in enumerate(legend_items):
-            y = padding + i * line_height
-
-            pygame.draw.circle(
-                legend_surface,
-                color,
-                (padding + 6, y + 7),
-                5
-            )
-
-            text = font.render(label, True, WHITE)
-            legend_surface.blit(text, (padding + 20, y))
-
-        screen.blit(legend_surface, (10, 10))

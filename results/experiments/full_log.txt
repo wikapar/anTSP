@@ -1,0 +1,438 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.10)
+[    0.0s] n=5   graph 0  Backtracking (no pruning)         0.000s
+[    0.0s] n=5   graph 0  Backtracking (simple bound)       0.000s
+[    0.0s] n=5   graph 0  Backtracking (MST bound)          0.000s
+[    0.0s] n=5   graph 0  Backtracking (MST + NN start)     0.000s
+[    0.0s] n=5   graph 0  Held-Karp (DP)                    0.000s
+[    0.1s] n=5   graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    0.1s] n=5   graph 1  Backtracking (no pruning)         0.000s
+[    0.1s] n=5   graph 1  Backtracking (simple bound)       0.000s
+[    0.1s] n=5   graph 1  Backtracking (MST bound)          0.000s
+[    0.1s] n=5   graph 1  Backtracking (MST + NN start)     0.000s
+[    0.1s] n=5   graph 1  Held-Karp (DP)                    0.000s
+[    0.3s] n=5   graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    0.3s] n=5   graph 2  Backtracking (no pruning)         0.000s
+[    0.3s] n=5   graph 2  Backtracking (simple bound)       0.000s
+[    0.3s] n=5   graph 2  Backtracking (MST bound)          0.000s
+[    0.3s] n=5   graph 2  Backtracking (MST + NN start)     0.000s
+[    0.3s] n=5   graph 2  Held-Karp (DP)                    0.000s
+[    0.4s] n=5   graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    0.4s] n=5   graph 3  Backtracking (no pruning)         0.000s
+[    0.4s] n=5   graph 3  Backtracking (simple bound)       0.000s
+[    0.4s] n=5   graph 3  Backtracking (MST bound)          0.000s
+[    0.4s] n=5   graph 3  Backtracking (MST + NN start)     0.000s
+[    0.4s] n=5   graph 3  Held-Karp (DP)                    0.000s
+[    0.5s] n=5   graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    0.5s] n=5   graph 4  Backtracking (no pruning)         0.000s
+[    0.5s] n=5   graph 4  Backtracking (simple bound)       0.000s
+[    0.5s] n=5   graph 4  Backtracking (MST bound)          0.000s
+[    0.5s] n=5   graph 4  Backtracking (MST + NN start)     0.000s
+[    0.5s] n=5   graph 4  Held-Karp (DP)                    0.000s
+[    0.6s] n=5   graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    0.6s] n=6   graph 0  Backtracking (no pruning)         0.001s
+[    0.6s] n=6   graph 0  Backtracking (simple bound)       0.001s
+[    0.6s] n=6   graph 0  Backtracking (MST bound)          0.000s
+[    0.6s] n=6   graph 0  Backtracking (MST + NN start)     0.000s
+[    0.6s] n=6   graph 0  Held-Karp (DP)                    0.000s
+[    0.8s] n=6   graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    0.8s] n=6   graph 1  Backtracking (no pruning)         0.001s
+[    0.8s] n=6   graph 1  Backtracking (simple bound)       0.000s
+[    0.8s] n=6   graph 1  Backtracking (MST bound)          0.000s
+[    0.8s] n=6   graph 1  Backtracking (MST + NN start)     0.000s
+[    0.8s] n=6   graph 1  Held-Karp (DP)                    0.000s
+[    0.9s] n=6   graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    0.9s] n=6   graph 2  Backtracking (no pruning)         0.001s
+[    0.9s] n=6   graph 2  Backtracking (simple bound)       0.000s
+[    0.9s] n=6   graph 2  Backtracking (MST bound)          0.000s
+[    0.9s] n=6   graph 2  Backtracking (MST + NN start)     0.000s
+[    0.9s] n=6   graph 2  Held-Karp (DP)                    0.000s
+[    1.1s] n=6   graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    1.1s] n=6   graph 3  Backtracking (no pruning)         0.001s
+[    1.1s] n=6   graph 3  Backtracking (simple bound)       0.000s
+[    1.1s] n=6   graph 3  Backtracking (MST bound)          0.000s
+[    1.1s] n=6   graph 3  Backtracking (MST + NN start)     0.000s
+[    1.1s] n=6   graph 3  Held-Karp (DP)                    0.000s
+[    1.3s] n=6   graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    1.3s] n=6   graph 4  Backtracking (no pruning)         0.001s
+[    1.3s] n=6   graph 4  Backtracking (simple bound)       0.000s
+[    1.3s] n=6   graph 4  Backtracking (MST bound)          0.000s
+[    1.3s] n=6   graph 4  Backtracking (MST + NN start)     0.001s
+[    1.3s] n=6   graph 4  Held-Karp (DP)                    0.000s
+[    1.4s] n=6   graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    1.4s] n=7   graph 0  Backtracking (no pruning)         0.006s
+[    1.4s] n=7   graph 0  Backtracking (simple bound)       0.004s
+[    1.4s] n=7   graph 0  Backtracking (MST bound)          0.001s
+[    1.4s] n=7   graph 0  Backtracking (MST + NN start)     0.001s
+[    1.4s] n=7   graph 0  Held-Karp (DP)                    0.001s
+[    1.6s] n=7   graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    1.6s] n=7   graph 1  Backtracking (no pruning)         0.005s
+[    1.7s] n=7   graph 1  Backtracking (simple bound)       0.002s
+[    1.7s] n=7   graph 1  Backtracking (MST bound)          0.000s
+[    1.7s] n=7   graph 1  Backtracking (MST + NN start)     0.000s
+[    1.7s] n=7   graph 1  Held-Karp (DP)                    0.000s
+[    1.9s] n=7   graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    1.9s] n=7   graph 2  Backtracking (no pruning)         0.005s
+[    1.9s] n=7   graph 2  Backtracking (simple bound)       0.002s
+[    1.9s] n=7   graph 2  Backtracking (MST bound)          0.001s
+[    1.9s] n=7   graph 2  Backtracking (MST + NN start)     0.000s
+[    1.9s] n=7   graph 2  Held-Karp (DP)                    0.000s
+[    2.1s] n=7   graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    2.1s] n=7   graph 3  Backtracking (no pruning)         0.008s
+[    2.1s] n=7   graph 3  Backtracking (simple bound)       0.001s
+[    2.1s] n=7   graph 3  Backtracking (MST bound)          0.000s
+[    2.1s] n=7   graph 3  Backtracking (MST + NN start)     0.000s
+[    2.1s] n=7   graph 3  Held-Karp (DP)                    0.000s
+[    2.3s] n=7   graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    2.3s] n=7   graph 4  Backtracking (no pruning)         0.006s
+[    2.3s] n=7   graph 4  Backtracking (simple bound)       0.003s
+[    2.3s] n=7   graph 4  Backtracking (MST bound)          0.001s
+[    2.3s] n=7   graph 4  Backtracking (MST + NN start)     0.001s
+[    2.3s] n=7   graph 4  Held-Karp (DP)                    0.000s
+[    2.6s] n=7   graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    2.6s] n=8   graph 0  Backtracking (no pruning)         0.037s
+[    2.6s] n=8   graph 0  Backtracking (simple bound)       0.014s
+[    2.6s] n=8   graph 0  Backtracking (MST bound)          0.001s
+[    2.6s] n=8   graph 0  Backtracking (MST + NN start)     0.001s
+[    2.6s] n=8   graph 0  Held-Karp (DP)                    0.000s
+[    3.2s] n=8   graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    3.3s] n=8   graph 1  Backtracking (no pruning)         0.093s
+[    3.3s] n=8   graph 1  Backtracking (simple bound)       0.016s
+[    3.3s] n=8   graph 1  Backtracking (MST bound)          0.001s
+[    3.3s] n=8   graph 1  Backtracking (MST + NN start)     0.001s
+[    3.3s] n=8   graph 1  Held-Karp (DP)                    0.001s
+[    4.0s] n=8   graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    4.1s] n=8   graph 2  Backtracking (no pruning)         0.103s
+[    4.2s] n=8   graph 2  Backtracking (simple bound)       0.024s
+[    4.2s] n=8   graph 2  Backtracking (MST bound)          0.003s
+[    4.2s] n=8   graph 2  Backtracking (MST + NN start)     0.003s
+[    4.2s] n=8   graph 2  Held-Karp (DP)                    0.001s
+[    4.9s] n=8   graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    5.0s] n=8   graph 3  Backtracking (no pruning)         0.092s
+[    5.0s] n=8   graph 3  Backtracking (simple bound)       0.022s
+[    5.0s] n=8   graph 3  Backtracking (MST bound)          0.002s
+[    5.0s] n=8   graph 3  Backtracking (MST + NN start)     0.002s
+[    5.0s] n=8   graph 3  Held-Karp (DP)                    0.001s
+[    5.7s] n=8   graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.2%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    5.8s] n=8   graph 4  Backtracking (no pruning)         0.092s
+[    5.9s] n=8   graph 4  Backtracking (simple bound)       0.031s
+[    5.9s] n=8   graph 4  Backtracking (MST bound)          0.007s
+[    5.9s] n=8   graph 4  Backtracking (MST + NN start)     0.012s
+[    5.9s] n=8   graph 4  Held-Karp (DP)                    0.001s
+[    6.6s] n=8   graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    7.7s] n=9   graph 0  Backtracking (no pruning)         0.823s
+[    7.8s] n=9   graph 0  Backtracking (simple bound)       0.099s
+[    7.8s] n=9   graph 0  Backtracking (MST bound)          0.010s
+[    7.8s] n=9   graph 0  Backtracking (MST + NN start)     0.010s
+[    7.8s] n=9   graph 0  Held-Karp (DP)                    0.002s
+[    8.8s] n=9   graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[    9.8s] n=9   graph 1  Backtracking (no pruning)         0.793s
+[    9.9s] n=9   graph 1  Backtracking (simple bound)       0.091s
+[    9.9s] n=9   graph 1  Backtracking (MST bound)          0.016s
+[    9.9s] n=9   graph 1  Backtracking (MST + NN start)     0.017s
+[    9.9s] n=9   graph 1  Held-Karp (DP)                    0.002s
+[   10.9s] n=9   graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   11.8s] n=9   graph 2  Backtracking (no pruning)         0.777s
+[   12.0s] n=9   graph 2  Backtracking (simple bound)       0.086s
+[   12.0s] n=9   graph 2  Backtracking (MST bound)          0.003s
+[   12.0s] n=9   graph 2  Backtracking (MST + NN start)     0.002s
+[   12.0s] n=9   graph 2  Held-Karp (DP)                    0.003s
+[   12.9s] n=9   graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   14.0s] n=9   graph 3  Backtracking (no pruning)         0.853s
+[   14.1s] n=9   graph 3  Backtracking (simple bound)       0.081s
+[   14.1s] n=9   graph 3  Backtracking (MST bound)          0.009s
+[   14.1s] n=9   graph 3  Backtracking (MST + NN start)     0.007s
+[   14.1s] n=9   graph 3  Held-Karp (DP)                    0.002s
+[   15.0s] n=9   graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   16.1s] n=9   graph 4  Backtracking (no pruning)         0.834s
+[   16.2s] n=9   graph 4  Backtracking (simple bound)       0.105s
+[   16.2s] n=9   graph 4  Backtracking (MST bound)          0.003s
+[   16.2s] n=9   graph 4  Backtracking (MST + NN start)     0.003s
+[   16.2s] n=9   graph 4  Held-Karp (DP)                    0.002s
+[   17.2s] n=9   graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   21.7s] n=10  graph 0  Backtracking (no pruning)         3.571s
+[   22.0s] n=10  graph 0  Backtracking (simple bound)       0.264s
+[   22.0s] n=10  graph 0  Backtracking (MST bound)          0.024s
+[   22.0s] n=10  graph 0  Backtracking (MST + NN start)     0.029s
+[   22.0s] n=10  graph 0  Held-Karp (DP)                    0.002s
+[   22.5s] n=10  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   26.3s] n=10  graph 1  Backtracking (no pruning)         3.064s
+[   26.6s] n=10  graph 1  Backtracking (simple bound)       0.187s
+[   26.6s] n=10  graph 1  Backtracking (MST bound)          0.011s
+[   26.6s] n=10  graph 1  Backtracking (MST + NN start)     0.008s
+[   26.6s] n=10  graph 1  Held-Karp (DP)                    0.003s
+[   27.1s] n=10  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   31.1s] n=10  graph 2  Backtracking (no pruning)         3.258s
+[   31.4s] n=10  graph 2  Backtracking (simple bound)       0.239s
+[   31.4s] n=10  graph 2  Backtracking (MST bound)          0.006s
+[   31.4s] n=10  graph 2  Backtracking (MST + NN start)     0.005s
+[   31.4s] n=10  graph 2  Held-Karp (DP)                    0.003s
+[   31.9s] n=10  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=1.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   35.5s] n=10  graph 3  Backtracking (no pruning)         2.910s
+[   36.0s] n=10  graph 3  Backtracking (simple bound)       0.401s
+[   36.1s] n=10  graph 3  Backtracking (MST bound)          0.055s
+[   36.1s] n=10  graph 3  Backtracking (MST + NN start)     0.049s
+[   36.1s] n=10  graph 3  Held-Karp (DP)                    0.002s
+[   36.6s] n=10  graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   40.3s] n=10  graph 4  Backtracking (no pruning)         2.971s
+[   40.7s] n=10  graph 4  Backtracking (simple bound)       0.315s
+[   40.7s] n=10  graph 4  Backtracking (MST bound)          0.017s
+[   40.7s] n=10  graph 4  Backtracking (MST + NN start)     0.021s
+[   40.7s] n=10  graph 4  Held-Karp (DP)                    0.002s
+[   41.2s] n=10  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[   78.6s] n=11  graph 0  Backtracking (no pruning)        30.001s  TIMEOUT
+[   82.9s] n=11  graph 0  Backtracking (simple bound)       3.465s
+[   83.1s] n=11  graph 0  Backtracking (MST bound)          0.142s
+[   83.2s] n=11  graph 0  Backtracking (MST + NN start)     0.150s
+[   83.2s] n=11  graph 0  Held-Karp (DP)                    0.014s
+[   84.8s] n=11  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  122.5s] n=11  graph 1  Backtracking (no pruning)        30.001s  TIMEOUT
+[  132.8s] n=11  graph 1  Backtracking (simple bound)       8.220s
+[  133.1s] n=11  graph 1  Backtracking (MST bound)          0.258s
+[  133.4s] n=11  graph 1  Backtracking (MST + NN start)     0.275s
+[  133.4s] n=11  graph 1  Held-Karp (DP)                    0.013s
+[  134.9s] n=11  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  172.5s] n=11  graph 2  Backtracking (no pruning)        30.001s  TIMEOUT
+[  175.3s] n=11  graph 2  Backtracking (simple bound)       2.289s
+[  175.4s] n=11  graph 2  Backtracking (MST bound)          0.032s
+[  175.4s] n=11  graph 2  Backtracking (MST + NN start)     0.031s
+[  175.4s] n=11  graph 2  Held-Karp (DP)                    0.011s
+[  176.8s] n=11  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  214.4s] n=11  graph 3  Backtracking (no pruning)        30.001s  TIMEOUT
+[  219.2s] n=11  graph 3  Backtracking (simple bound)       3.779s
+[  219.2s] n=11  graph 3  Backtracking (MST bound)          0.021s
+[  219.2s] n=11  graph 3  Backtracking (MST + NN start)     0.021s
+[  219.2s] n=11  graph 3  Held-Karp (DP)                    0.013s
+[  220.7s] n=11  graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  258.4s] n=11  graph 4  Backtracking (no pruning)        30.002s  TIMEOUT
+[  261.3s] n=11  graph 4  Backtracking (simple bound)       2.256s
+[  261.3s] n=11  graph 4  Backtracking (MST bound)          0.020s
+[  261.3s] n=11  graph 4  Backtracking (MST + NN start)     0.021s
+[  261.3s] n=11  graph 4  Held-Karp (DP)                    0.012s
+[  262.8s] n=11  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  293.1s] n=12  graph 0  Backtracking (simple bound)      24.343s
+[  293.5s] n=12  graph 0  Backtracking (MST bound)          0.372s
+[  293.9s] n=12  graph 0  Backtracking (MST + NN start)     0.407s
+[  294.0s] n=12  graph 0  Held-Karp (DP)                    0.032s
+[  295.7s] n=12  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  309.0s] n=12  graph 1  Backtracking (simple bound)      10.674s
+[  309.2s] n=12  graph 1  Backtracking (MST bound)          0.208s
+[  309.2s] n=12  graph 1  Backtracking (MST + NN start)     0.017s
+[  309.3s] n=12  graph 1  Held-Karp (DP)                    0.033s
+[  311.0s] n=12  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  316.3s] n=12  graph 2  Backtracking (simple bound)       4.267s
+[  316.3s] n=12  graph 2  Backtracking (MST bound)          0.006s
+[  316.3s] n=12  graph 2  Backtracking (MST + NN start)     0.006s
+[  316.3s] n=12  graph 2  Held-Karp (DP)                    0.029s
+[  318.1s] n=12  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  333.8s] n=12  graph 3  Backtracking (simple bound)      12.622s
+[  334.0s] n=12  graph 3  Backtracking (MST bound)          0.139s
+[  334.1s] n=12  graph 3  Backtracking (MST + NN start)     0.094s
+[  334.1s] n=12  graph 3  Held-Karp (DP)                    0.030s
+[  336.0s] n=12  graph 3  ACO gaps (optimum): Ant=0.3%, Elitist=0.3%, MAX-MIN=0.5%, MAX-MIN+2opt=0.0%
+[  349.9s] n=12  graph 4  Backtracking (simple bound)      11.207s
+[  349.9s] n=12  graph 4  Backtracking (MST bound)          0.018s
+[  349.9s] n=12  graph 4  Backtracking (MST + NN start)     0.014s
+[  349.9s] n=12  graph 4  Held-Karp (DP)                    0.010s
+[  350.6s] n=12  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  370.9s] n=13  graph 0  Backtracking (simple bound)      16.636s
+[  370.9s] n=13  graph 0  Backtracking (MST bound)          0.024s
+[  370.9s] n=13  graph 0  Backtracking (MST + NN start)     0.023s
+[  371.0s] n=13  graph 0  Held-Karp (DP)                    0.024s
+[  371.9s] n=13  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  399.0s] n=13  graph 1  Backtracking (simple bound)      21.972s
+[  399.0s] n=13  graph 1  Backtracking (MST bound)          0.028s
+[  399.0s] n=13  graph 1  Backtracking (MST + NN start)     0.031s
+[  399.1s] n=13  graph 1  Held-Karp (DP)                    0.052s
+[  400.8s] n=13  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.5%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  437.6s] n=13  graph 2  Backtracking (simple bound)      30.001s  TIMEOUT
+[  437.6s] n=13  graph 2  Backtracking (MST bound)          0.047s
+[  437.7s] n=13  graph 2  Backtracking (MST + NN start)     0.044s
+[  437.7s] n=13  graph 2  Held-Karp (DP)                    0.032s
+[  438.7s] n=13  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  475.4s] n=13  graph 3  Backtracking (simple bound)      30.001s  TIMEOUT
+[  476.8s] n=13  graph 3  Backtracking (MST bound)          1.302s
+[  478.3s] n=13  graph 3  Backtracking (MST + NN start)     1.372s
+[  478.3s] n=13  graph 3  Held-Karp (DP)                    0.034s
+[  479.2s] n=13  graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  516.0s] n=13  graph 4  Backtracking (simple bound)      30.000s  TIMEOUT
+[  516.2s] n=13  graph 4  Backtracking (MST bound)          0.157s
+[  516.4s] n=13  graph 4  Backtracking (MST + NN start)     0.156s
+[  516.4s] n=13  graph 4  Held-Karp (DP)                    0.023s
+[  517.3s] n=13  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.1%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  517.3s] n=14  graph 0  Backtracking (MST bound)          0.008s
+[  517.3s] n=14  graph 0  Backtracking (MST + NN start)     0.007s
+[  517.3s] n=14  graph 0  Held-Karp (DP)                    0.068s
+[  518.4s] n=14  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  519.2s] n=14  graph 1  Backtracking (MST bound)          0.822s
+[  520.1s] n=14  graph 1  Backtracking (MST + NN start)     0.769s
+[  520.1s] n=14  graph 1  Held-Karp (DP)                    0.049s
+[  521.1s] n=14  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.4%, MAX-MIN=0.4%, MAX-MIN+2opt=0.0%
+[  521.4s] n=14  graph 2  Backtracking (MST bound)          0.324s
+[  521.8s] n=14  graph 2  Backtracking (MST + NN start)     0.340s
+[  521.8s] n=14  graph 2  Held-Karp (DP)                    0.052s
+[  522.7s] n=14  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  523.0s] n=14  graph 3  Backtracking (MST bound)          0.255s
+[  523.2s] n=14  graph 3  Backtracking (MST + NN start)     0.200s
+[  523.3s] n=14  graph 3  Held-Karp (DP)                    0.050s
+[  524.3s] n=14  graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  525.0s] n=14  graph 4  Backtracking (MST bound)          0.742s
+[  525.9s] n=14  graph 4  Backtracking (MST + NN start)     0.794s
+[  526.0s] n=14  graph 4  Held-Karp (DP)                    0.068s
+[  527.0s] n=14  graph 4  ACO gaps (optimum): Ant=0.4%, Elitist=0.6%, MAX-MIN=0.6%, MAX-MIN+2opt=0.0%
+[  527.1s] n=15  graph 0  Backtracking (MST bound)          0.133s
+[  527.2s] n=15  graph 0  Backtracking (MST + NN start)     0.099s
+[  527.4s] n=15  graph 0  Held-Karp (DP)                    0.140s
+[  528.8s] n=15  graph 0  ACO gaps (optimum): Ant=0.2%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  528.8s] n=15  graph 1  Backtracking (MST bound)          0.051s
+[  528.9s] n=15  graph 1  Backtracking (MST + NN start)     0.051s
+[  529.0s] n=15  graph 1  Held-Karp (DP)                    0.158s
+[  530.3s] n=15  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  530.5s] n=15  graph 2  Backtracking (MST bound)          0.149s
+[  530.6s] n=15  graph 2  Backtracking (MST + NN start)     0.150s
+[  530.8s] n=15  graph 2  Held-Karp (DP)                    0.158s
+[  532.1s] n=15  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  532.6s] n=15  graph 3  Backtracking (MST bound)          0.381s
+[  533.0s] n=15  graph 3  Backtracking (MST + NN start)     0.427s
+[  533.1s] n=15  graph 3  Held-Karp (DP)                    0.128s
+[  534.4s] n=15  graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=1.6%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  535.6s] n=15  graph 4  Backtracking (MST bound)          1.086s
+[  536.6s] n=15  graph 4  Backtracking (MST + NN start)     0.984s
+[  536.8s] n=15  graph 4  Held-Karp (DP)                    0.133s
+[  538.1s] n=15  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.7%, MAX-MIN+2opt=0.0%
+[  538.5s] n=16  graph 0  Backtracking (MST bound)          0.312s
+[  538.9s] n=16  graph 0  Backtracking (MST + NN start)     0.414s
+[  539.7s] n=16  graph 0  Held-Karp (DP)                    0.725s
+[  543.0s] n=16  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  543.0s] n=16  graph 1  Backtracking (MST bound)          0.016s
+[  543.0s] n=16  graph 1  Backtracking (MST + NN start)     0.017s
+[  543.4s] n=16  graph 1  Held-Karp (DP)                    0.344s
+[  545.1s] n=16  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  545.8s] n=16  graph 2  Backtracking (MST bound)          0.610s
+[  546.3s] n=16  graph 2  Backtracking (MST + NN start)     0.535s
+[  546.7s] n=16  graph 2  Held-Karp (DP)                    0.298s
+[  548.2s] n=16  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  553.1s] n=16  graph 3  Backtracking (MST bound)          4.645s
+[  556.4s] n=16  graph 3  Backtracking (MST + NN start)     3.133s
+[  556.7s] n=16  graph 3  Held-Karp (DP)                    0.281s
+[  558.1s] n=16  graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=1.0%, MAX-MIN=0.1%, MAX-MIN+2opt=0.0%
+[  558.6s] n=16  graph 4  Backtracking (MST bound)          0.470s
+[  559.1s] n=16  graph 4  Backtracking (MST + NN start)     0.414s
+[  559.4s] n=16  graph 4  Held-Karp (DP)                    0.300s
+[  560.7s] n=16  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  560.9s] n=18  graph 0  Backtracking (MST bound)          0.120s
+[  561.0s] n=18  graph 0  Backtracking (MST + NN start)     0.114s
+[  562.6s] n=18  graph 0  Held-Karp (DP)                    1.523s
+[  564.5s] n=18  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.1%, MAX-MIN=0.1%, MAX-MIN+2opt=0.0%
+[  566.8s] n=18  graph 1  Backtracking (MST bound)          2.103s
+[  569.2s] n=18  graph 1  Backtracking (MST + NN start)     2.356s
+[  570.8s] n=18  graph 1  Held-Karp (DP)                    1.497s
+[  572.8s] n=18  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  574.3s] n=18  graph 2  Backtracking (MST bound)          1.483s
+[  575.7s] n=18  graph 2  Backtracking (MST + NN start)     1.353s
+[  577.3s] n=18  graph 2  Held-Karp (DP)                    1.477s
+[  579.3s] n=18  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  580.0s] n=18  graph 3  Backtracking (MST bound)          0.664s
+[  581.0s] n=18  graph 3  Backtracking (MST + NN start)     0.942s
+[  584.6s] n=18  graph 3  Held-Karp (DP)                    3.372s
+[  589.1s] n=18  graph 3  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  592.6s] n=18  graph 4  Backtracking (MST bound)          3.277s
+[  595.8s] n=18  graph 4  Backtracking (MST + NN start)     3.062s
+[  599.2s] n=18  graph 4  Held-Karp (DP)                    3.215s
+[  603.7s] n=18  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  616.1s] n=20  graph 0  Backtracking (MST bound)         11.841s
+[  622.1s] n=20  graph 0  Backtracking (MST + NN start)     5.823s
+[  629.4s] n=20  graph 0  Held-Karp (DP)                    6.948s
+[  632.1s] n=20  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.1%, MAX-MIN=0.2%, MAX-MIN+2opt=0.0%
+[  639.5s] n=20  graph 1  Backtracking (MST bound)          6.838s
+[  646.3s] n=20  graph 1  Backtracking (MST + NN start)     6.327s
+[  653.6s] n=20  graph 1  Held-Karp (DP)                    6.958s
+[  656.2s] n=20  graph 1  ACO gaps (optimum): Ant=0.0%, Elitist=0.7%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  656.4s] n=20  graph 2  Backtracking (MST bound)          0.158s
+[  656.5s] n=20  graph 2  Backtracking (MST + NN start)     0.158s
+[  664.8s] n=20  graph 2  Held-Karp (DP)                    7.887s
+[  670.1s] n=20  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.1%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  671.6s] n=20  graph 3  Backtracking (MST bound)          1.405s
+[  673.3s] n=20  graph 3  Backtracking (MST + NN start)     1.636s
+[  685.0s] n=20  graph 3  Held-Karp (DP)                   10.771s
+[  687.6s] n=20  graph 3  ACO gaps (optimum): Ant=0.3%, Elitist=0.0%, MAX-MIN=0.3%, MAX-MIN+2opt=0.0%
+[  688.5s] n=20  graph 4  Backtracking (MST bound)          0.851s
+[  689.3s] n=20  graph 4  Backtracking (MST + NN start)     0.815s
+[  696.6s] n=20  graph 4  Held-Karp (DP)                    6.935s
+[  699.1s] n=20  graph 4  ACO gaps (optimum): Ant=0.0%, Elitist=0.1%, MAX-MIN=0.1%, MAX-MIN+2opt=0.0%
+[  699.5s] n=25  graph 0  Backtracking (MST bound)          0.377s
+[  700.0s] n=25  graph 0  Backtracking (MST + NN start)     0.464s
+[  703.8s] n=25  graph 0  ACO gaps (optimum): Ant=0.0%, Elitist=0.0%, MAX-MIN=0.5%, MAX-MIN+2opt=0.0%
+[  722.5s] n=25  graph 1  Backtracking (MST bound)         18.283s
+[  750.3s] n=25  graph 1  Backtracking (MST + NN start)    27.203s
+[  753.9s] n=25  graph 1  ACO gaps (optimum): Ant=0.3%, Elitist=1.8%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  769.4s] n=25  graph 2  Backtracking (MST bound)         14.876s
+[  785.2s] n=25  graph 2  Backtracking (MST + NN start)    15.271s
+[  788.8s] n=25  graph 2  ACO gaps (optimum): Ant=0.0%, Elitist=0.9%, MAX-MIN=0.3%, MAX-MIN+2opt=0.0%
+[  819.6s] n=25  graph 3  Backtracking (MST bound)         30.006s  TIMEOUT
+[  850.4s] n=25  graph 3  Backtracking (MST + NN start)    30.001s  TIMEOUT
+[  854.0s] n=25  graph 3  ACO gaps (best known): Ant=3.1%, Elitist=1.8%, MAX-MIN=1.3%, MAX-MIN+2opt=0.0%
+[  885.1s] n=25  graph 4  Backtracking (MST bound)         30.004s  TIMEOUT
+[  916.1s] n=25  graph 4  Backtracking (MST + NN start)    30.008s  TIMEOUT
+[  920.8s] n=25  graph 4  ACO gaps (best known): Ant=0.8%, Elitist=0.2%, MAX-MIN=0.3%, MAX-MIN+2opt=0.1%
+[  932.6s] n=30  graph 0  ACO gaps (best known): Ant=0.2%, Elitist=3.3%, MAX-MIN=0.9%, MAX-MIN+2opt=0.0%
+[  945.0s] n=30  graph 1  ACO gaps (best known): Ant=2.8%, Elitist=2.1%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  958.0s] n=30  graph 2  ACO gaps (best known): Ant=2.5%, Elitist=0.8%, MAX-MIN=0.6%, MAX-MIN+2opt=0.0%
+[  968.7s] n=30  graph 3  ACO gaps (best known): Ant=0.2%, Elitist=0.8%, MAX-MIN=0.3%, MAX-MIN+2opt=0.0%
+[  973.6s] n=30  graph 4  ACO gaps (best known): Ant=0.0%, Elitist=0.1%, MAX-MIN=0.0%, MAX-MIN+2opt=0.0%
+[  981.5s] n=40  graph 0  ACO gaps (best known): Ant=3.6%, Elitist=2.2%, MAX-MIN=0.8%, MAX-MIN+2opt=0.0%
+[  988.8s] n=40  graph 1  ACO gaps (best known): Ant=3.9%, Elitist=4.6%, MAX-MIN=3.5%, MAX-MIN+2opt=0.0%
+[  996.6s] n=40  graph 2  ACO gaps (best known): Ant=3.6%, Elitist=2.3%, MAX-MIN=1.0%, MAX-MIN+2opt=0.0%
+[ 1004.3s] n=40  graph 3  ACO gaps (best known): Ant=3.4%, Elitist=4.2%, MAX-MIN=0.8%, MAX-MIN+2opt=0.0%
+[ 1012.8s] n=40  graph 4  ACO gaps (best known): Ant=0.3%, Elitist=1.9%, MAX-MIN=1.3%, MAX-MIN+2opt=0.0%
+[ 1025.3s] n=50  graph 0  ACO gaps (best known): Ant=11.2%, Elitist=5.1%, MAX-MIN=5.1%, MAX-MIN+2opt=0.0%
+[ 1037.7s] n=50  graph 1  ACO gaps (best known): Ant=2.0%, Elitist=1.7%, MAX-MIN=2.6%, MAX-MIN+2opt=0.0%
+[ 1050.3s] n=50  graph 2  ACO gaps (best known): Ant=3.7%, Elitist=2.1%, MAX-MIN=2.0%, MAX-MIN+2opt=0.0%
+[ 1062.6s] n=50  graph 3  ACO gaps (best known): Ant=4.5%, Elitist=3.6%, MAX-MIN=1.6%, MAX-MIN+2opt=0.0%
+[ 1083.4s] n=50  graph 4  ACO gaps (best known): Ant=4.1%, Elitist=5.6%, MAX-MIN=3.3%, MAX-MIN+2opt=0.3%
+[ 1086.4s] sensitivity n=15 alpha,beta=0.5,0: mean gap 55.79%
+[ 1088.2s] sensitivity n=15 alpha,beta=0.5,1: mean gap 9.44%
+[ 1090.1s] sensitivity n=15 alpha,beta=0.5,2: mean gap 0.33%
+[ 1092.1s] sensitivity n=15 alpha,beta=0.5,3: mean gap 0.00%
+[ 1094.0s] sensitivity n=15 alpha,beta=0.5,5: mean gap 0.00%
+[ 1096.0s] sensitivity n=15 alpha,beta=1,0: mean gap 50.74%
+[ 1097.9s] sensitivity n=15 alpha,beta=1,1: mean gap 0.16%
+[ 1099.7s] sensitivity n=15 alpha,beta=1,2: mean gap 0.00%
+[ 1101.6s] sensitivity n=15 alpha,beta=1,3: mean gap 0.00%
+[ 1103.5s] sensitivity n=15 alpha,beta=1,5: mean gap 0.00%
+[ 1105.4s] sensitivity n=15 alpha,beta=2,0: mean gap 56.88%
+[ 1107.5s] sensitivity n=15 alpha,beta=2,1: mean gap 1.04%
+[ 1109.5s] sensitivity n=15 alpha,beta=2,2: mean gap 0.41%
+[ 1111.5s] sensitivity n=15 alpha,beta=2,3: mean gap 0.51%
+[ 1113.5s] sensitivity n=15 alpha,beta=2,5: mean gap 0.00%
+[ 1115.4s] sensitivity n=15 alpha,beta=3,0: mean gap 69.50%
+[ 1117.3s] sensitivity n=15 alpha,beta=3,1: mean gap 3.26%
+[ 1119.3s] sensitivity n=15 alpha,beta=3,2: mean gap 0.74%
+[ 1121.2s] sensitivity n=15 alpha,beta=3,3: mean gap 0.10%
+[ 1123.1s] sensitivity n=15 alpha,beta=3,5: mean gap 0.51%
+[ 1125.1s] sensitivity n=15 rho=0.02: mean gap 0.00%
+[ 1127.0s] sensitivity n=15 rho=0.05: mean gap 0.00%
+[ 1128.8s] sensitivity n=15 rho=0.1: mean gap 0.00%
+[ 1130.8s] sensitivity n=15 rho=0.2: mean gap 0.00%
+[ 1132.7s] sensitivity n=15 rho=0.4: mean gap 0.00%
+[ 1134.6s] sensitivity n=15 rho=0.6: mean gap 0.00%
+[ 1136.6s] sensitivity n=15 rho=0.9: mean gap 0.00%
+[ 1136.9s] sensitivity n=15 ants=1: mean gap 3.86%
+[ 1137.3s] sensitivity n=15 ants=2: mean gap 0.95%
+[ 1138.0s] sensitivity n=15 ants=5: mean gap 0.00%
+[ 1139.4s] sensitivity n=15 ants=10: mean gap 0.00%
+[ 1141.4s] sensitivity n=15 ants=15: mean gap 0.00%
+[ 1143.8s] sensitivity n=15 ants=20: mean gap 0.00%
+[ 1148.7s] sensitivity n=15 ants=40: mean gap 0.00%
+[ 1148.7s] Results saved in C:\Users\rita\Desktop\anTSP\results\experiments\full
+Plots for C:\Users\rita\Desktop\anTSP\results\experiments\full:
+  01_runtime_vs_n.png
+  02_work_vs_n.png
+  03_exact_algorithms.png
+  04_aco_gap_vs_n.png
+  05_aco_optimal_rate.png
+  06_convergence_n12.png
+  07_tradeoff.png
+  summary.csv
+  08_sensitivity_alpha_beta.png
+  09_sensitivity_rho.png
+  10_sensitivity_ants.png
